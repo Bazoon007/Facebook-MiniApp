@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex01.FacebookUI", "Ex01.FacebookUI\Ex01.FacebookUI.csproj", "{F89C72D8-B119-4BFE-A21B-36F486E82A9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex01.AlbumScanner", "Ex01.AlbumScanner\Ex01.AlbumScanner.csproj", "{FF33BB7F-6D26-41D1-B430-3B9493FD3288}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F89C72D8-B119-4BFE-A21B-36F486E82A9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F89C72D8-B119-4BFE-A21B-36F486E82A9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F89C72D8-B119-4BFE-A21B-36F486E82A9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F89C72D8-B119-4BFE-A21B-36F486E82A9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF33BB7F-6D26-41D1-B430-3B9493FD3288}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF33BB7F-6D26-41D1-B430-3B9493FD3288}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF33BB7F-6D26-41D1-B430-3B9493FD3288}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF33BB7F-6D26-41D1-B430-3B9493FD3288}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9D91D06D-2125-4B75-8934-A59EB7C5684E}
+	EndGlobalSection
+EndGlobal
