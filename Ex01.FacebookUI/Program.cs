@@ -7,5 +7,10 @@ namespace Ex01.FacebookUI
 {
     public static class Program
     {
+        [STAThread]
+        public static void Main()
+        {
+            new MainForm().ShowDialog();
+        }
     }
 }
