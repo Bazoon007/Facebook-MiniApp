@@ -19,8 +19,12 @@ namespace Ex01.UI
             LoginResult loginResult = Login.LoginWithFacebook();
             if (loginResult != null)
             {
-                new MainForm(loginResult).Show();
+                DialogResult dialogResult = new MainForm(loginResult).ShowDialog();
                 Hide();
+                if(dialogResult == DialogResult.Cancel)
+                {
+                    Show();
+                }
             }
             else
             {

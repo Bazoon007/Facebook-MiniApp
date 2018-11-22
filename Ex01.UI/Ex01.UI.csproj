@@ -111,5 +111,14 @@
   <ItemGroup>
     <None Include="Resources\Album Scanner.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logout.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LikeAlbum.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LikeAlbum1.PNG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

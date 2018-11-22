@@ -25,11 +25,17 @@ namespace Ex01.UI
         {
             labelWelcome.Text = string.Format("Welcome, {0} {1}!", m_User.FirstName, m_User.LastName);
             pictureBoxProfilePicture.LoadAsync(m_User.PictureNormalURL);
+            buttonLogout.DialogResult = DialogResult.Cancel;
         }
 
         private void buttonAlbumScanner_Click(object sender, EventArgs e)
         {
             new AlbumScannerForm(m_User).Show();
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            FacebookService.Logout(null);
         }
     }
 }
