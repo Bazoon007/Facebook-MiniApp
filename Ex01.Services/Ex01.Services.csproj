@@ -41,6 +41,7 @@
     <Reference Include="FbGraphApiWrapper">
       <HintPath>..\..\01_FB01_BasicFacebookFeatures.V6.8.0.17\FBApi\FbGraphApiWrapper.dll</HintPath>
     </Reference>
+    <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlbumScanner.cs" />

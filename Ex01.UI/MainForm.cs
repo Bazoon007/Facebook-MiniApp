@@ -27,17 +27,9 @@ namespace Ex01.UI
             pictureboxProfilePicture.LoadAsync(m_User.PictureNormalURL);
         }
 
-
-        private void populateAlbumNames()
+        private void buttonAlbumScanner_Click(object sender, EventArgs e)
         {
-            List<Album> albumsList = FacebookServices.PopulateAlbumNames(m_FacebookUser);
-
-            albumListBox.Items.Clear();
-            albumListBox.DisplayMember = "Name";
-            foreach (Album album in albumsList)
-            {
-                albumListBox.Items.Add(album);
-            }
+            new AlbumScannerForm(m_User).Show();
         }
     }
 }
