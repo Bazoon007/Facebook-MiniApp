@@ -37,5 +37,10 @@ namespace Ex01.UI
         {
             FacebookService.Logout(null);
         }
+
+        private void buttonBlastFromThePast_Click(object sender, EventArgs e)
+        {
+            new BlastFromThePastForm(m_User).Show();
+        }
     }
 }

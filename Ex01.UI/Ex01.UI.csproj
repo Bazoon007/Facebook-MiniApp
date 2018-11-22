@@ -56,6 +56,12 @@
     <Compile Include="AlbumScannerForm.Designer.cs">
       <DependentUpon>AlbumScannerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BlastFromThePastForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BlastFromThePastForm.Designer.cs">
+      <DependentUpon>BlastFromThePastForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AlbumScannerForm.resx">
       <DependentUpon>AlbumScannerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BlastFromThePastForm.resx">
+      <DependentUpon>BlastFromThePastForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -119,6 +128,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LikeAlbum1.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlastFromThePast.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlastFromThePast1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

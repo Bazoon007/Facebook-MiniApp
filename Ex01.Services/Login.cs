@@ -9,7 +9,6 @@ namespace Ex01.Services
 {
     public static class Login
     {   
-        //private bool m_OptionWindowsIsOpen = false;
         //private AppSettings m_appSettings;
         private const string k_AppId = "293329964644734";
         private readonly static string[] sr_Permissions = {

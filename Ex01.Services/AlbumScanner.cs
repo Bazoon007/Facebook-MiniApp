@@ -12,7 +12,7 @@ namespace Ex01.Services
     {
         private readonly FacebookObjectCollection<Album> r_Albums;
         public Album ScannedAlbum { get; set; }
-        public readonly string r_UserId;
+        private readonly string r_UserId;
 
         public FacebookObjectCollection<Album> Albums
         {

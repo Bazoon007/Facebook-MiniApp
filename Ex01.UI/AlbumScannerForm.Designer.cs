@@ -156,7 +156,7 @@
             this.Controls.Add(this.pictureBoxAlbumPicture);
             this.Controls.Add(this.listBoxAlbumList);
             this.Name = "AlbumScannerForm";
-            this.Text = "AlbumScannerForm";
+            this.Text = "Album Scanner";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbumPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
