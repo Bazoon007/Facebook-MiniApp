@@ -25,50 +25,69 @@ namespace Ex01.UI
 
         private void initAlbumScannerForm()
         {
-            listboxAlbumList.Items.Clear();
-            listviewAlbumPhotos.Items.Clear();
-            listviewAlbumPhotos.View = View.Details;
-            listviewAlbumPhotos.Columns.Add("Photos", 200);
+            listBoxAlbumList.Items.Clear();
+            listViewAlbumPhotos.Items.Clear();
+            listViewAlbumPhotos.View = View.Details;
+            listViewAlbumPhotos.Columns.Add("Photos", 200);
             r_AlbumPhotosImageList.ImageSize = new Size(240, 240);
-            listviewAlbumPhotos.SmallImageList = r_AlbumPhotosImageList;
-            listboxAlbumList.DisplayMember = "Name";
+            listViewAlbumPhotos.SmallImageList = r_AlbumPhotosImageList;
+            listBoxAlbumList.DisplayMember = "Name";
+            int j = 0;
             foreach(Album album in r_AlbumScanner.Albums)
             {
-                listboxAlbumList.Items.Add(album);
+                if(j >= 5)
+                {
+                    break;
+                }
+                listBoxAlbumList.Items.Add(album);
+                j++;
             }
         }
 
-        private void listboxAlbumList_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBoxAlbumList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listboxAlbumList.Items.Count > 0)
+            if (listBoxAlbumList.Items.Count > 0)
             {
-                Album selectedAlbum = listboxAlbumList.SelectedItem as Album;
-                pictureboxAlbumPicture.LoadAsync(selectedAlbum.CoverPhoto.PictureAlbumURL);
+                Album selectedAlbum = listBoxAlbumList.SelectedItem as Album;
+                pictureBoxAlbumPicture.LoadAsync(selectedAlbum.CoverPhoto.PictureAlbumURL);
             }
         }
 
         private void buttonScan_Click(object sender, EventArgs e)
         {
-            if (listboxAlbumList.SelectedItem != null)
+            if (listBoxAlbumList.SelectedItem != null)
             {
-                r_AlbumScanner.ScannedAlbum = listboxAlbumList.SelectedItem as Album;
-                listviewAlbumPhotos.Items.Clear();
-                foreach (Photo photo in r_AlbumScanner.ScannedAlbum.Photos)
+                r_AlbumScanner.ScannedAlbum = listBoxAlbumList.SelectedItem as Album;
+                listViewAlbumPhotos.Items.Clear();
+                if (r_AlbumScanner.ScannedAlbum.Photos != null)
                 {
-                    r_AlbumPhotosImageList.Images.Add(photo.ImageNormal);
-                    foreach(PhotoTag tag in photo.Tags)
+                    foreach (Photo photo in r_AlbumScanner.ScannedAlbum.Photos)
                     {
-                        MessageBox.Show(tag.User.Name);
+                        r_AlbumPhotosImageList.Images.Add(photo.ImageNormal);
+                        if (photo.Tags != null)
+                        {
+                            foreach (PhotoTag tag in photo.Tags)
+                            {
+                                addTaggedFriendNameToCheckedListBox(tag.User.Name);
+                            }
+                        }
                     }
-                }
-                for(int i = 0; i < r_AlbumPhotosImageList.Images.Count; i++)
-                {
-                    listviewAlbumPhotos.Items.Add("", i);
+                    for (int i = 0; i < r_AlbumPhotosImageList.Images.Count; i++)
+                    {
+                        listViewAlbumPhotos.Items.Add("", i);
+                    }
                 }
             }
             else
             {
-                MessageBox.Show("Please select an album to scan.");
+                MessageBox.Show("Album not selected - please select an album to scan.");
+            }
+        }
+
+        private void addTaggedFriendNameToCheckedListBox(string i_TaggedFriendName)
+        {
+            if (!checkedListBoxTaggedFriends.Items.Contains(i_TaggedFriendName)) {
+                checkedListBoxTaggedFriends.Items.Add(i_TaggedFriendName);
             }
         }
     }

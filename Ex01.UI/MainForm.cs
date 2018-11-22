@@ -24,7 +24,7 @@ namespace Ex01.UI
         private void initMainForm()
         {
             labelWelcome.Text = string.Format("Welcome, {0} {1}!", m_User.FirstName, m_User.LastName);
-            pictureboxProfilePicture.LoadAsync(m_User.PictureNormalURL);
+            pictureBoxProfilePicture.LoadAsync(m_User.PictureNormalURL);
         }
 
         private void buttonAlbumScanner_Click(object sender, EventArgs e)

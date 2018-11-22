@@ -28,29 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listboxAlbumList = new System.Windows.Forms.ListBox();
+            this.listBoxAlbumList = new System.Windows.Forms.ListBox();
             this.buttonScan = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.listviewAlbumPhotos = new System.Windows.Forms.ListView();
-            this.pictureboxAlbumPicture = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureboxAlbumPicture)).BeginInit();
+            this.listViewAlbumPhotos = new System.Windows.Forms.ListView();
+            this.pictureBoxAlbumPicture = new System.Windows.Forms.PictureBox();
+            this.checkedListBoxTaggedFriends = new System.Windows.Forms.CheckedListBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbumPicture)).BeginInit();
             this.SuspendLayout();
             // 
-            // listboxAlbumList
+            // listBoxAlbumList
             // 
-            this.listboxAlbumList.FormattingEnabled = true;
-            this.listboxAlbumList.ItemHeight = 20;
-            this.listboxAlbumList.Location = new System.Drawing.Point(81, 100);
-            this.listboxAlbumList.Name = "listboxAlbumList";
-            this.listboxAlbumList.Size = new System.Drawing.Size(289, 484);
-            this.listboxAlbumList.TabIndex = 0;
-            this.listboxAlbumList.SelectedIndexChanged += new System.EventHandler(this.listboxAlbumList_SelectedIndexChanged);
+            this.listBoxAlbumList.FormattingEnabled = true;
+            this.listBoxAlbumList.ItemHeight = 20;
+            this.listBoxAlbumList.Location = new System.Drawing.Point(81, 100);
+            this.listBoxAlbumList.Name = "listBoxAlbumList";
+            this.listBoxAlbumList.Size = new System.Drawing.Size(289, 484);
+            this.listBoxAlbumList.TabIndex = 0;
+            this.listBoxAlbumList.SelectedIndexChanged += new System.EventHandler(this.listBoxAlbumList_SelectedIndexChanged);
             // 
             // buttonScan
             // 
             this.buttonScan.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.buttonScan.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonScan.Location = new System.Drawing.Point(1131, 525);
+            this.buttonScan.Location = new System.Drawing.Point(1284, 505);
             this.buttonScan.Name = "buttonScan";
             this.buttonScan.Size = new System.Drawing.Size(417, 111);
             this.buttonScan.TabIndex = 2;
@@ -68,22 +69,30 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Album List";
             // 
-            // listviewAlbumPhotos
+            // listViewAlbumPhotos
             // 
-            this.listviewAlbumPhotos.Location = new System.Drawing.Point(433, 100);
-            this.listviewAlbumPhotos.Name = "listviewAlbumPhotos";
-            this.listviewAlbumPhotos.Size = new System.Drawing.Size(530, 484);
-            this.listviewAlbumPhotos.TabIndex = 4;
-            this.listviewAlbumPhotos.UseCompatibleStateImageBehavior = false;
+            this.listViewAlbumPhotos.Location = new System.Drawing.Point(433, 100);
+            this.listViewAlbumPhotos.Name = "listViewAlbumPhotos";
+            this.listViewAlbumPhotos.Size = new System.Drawing.Size(530, 484);
+            this.listViewAlbumPhotos.TabIndex = 4;
+            this.listViewAlbumPhotos.UseCompatibleStateImageBehavior = false;
             // 
-            // pictureboxAlbumPicture
+            // pictureBoxAlbumPicture
             // 
-            this.pictureboxAlbumPicture.Location = new System.Drawing.Point(1016, 100);
-            this.pictureboxAlbumPicture.Name = "pictureboxAlbumPicture";
-            this.pictureboxAlbumPicture.Size = new System.Drawing.Size(605, 392);
-            this.pictureboxAlbumPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureboxAlbumPicture.TabIndex = 1;
-            this.pictureboxAlbumPicture.TabStop = false;
+            this.pictureBoxAlbumPicture.Location = new System.Drawing.Point(1189, 82);
+            this.pictureBoxAlbumPicture.Name = "pictureBoxAlbumPicture";
+            this.pictureBoxAlbumPicture.Size = new System.Drawing.Size(605, 392);
+            this.pictureBoxAlbumPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxAlbumPicture.TabIndex = 1;
+            this.pictureBoxAlbumPicture.TabStop = false;
+            // 
+            // checkedListBoxTaggedFriends
+            // 
+            this.checkedListBoxTaggedFriends.FormattingEnabled = true;
+            this.checkedListBoxTaggedFriends.Location = new System.Drawing.Point(552, 750);
+            this.checkedListBoxTaggedFriends.Name = "checkedListBoxTaggedFriends";
+            this.checkedListBoxTaggedFriends.Size = new System.Drawing.Size(269, 130);
+            this.checkedListBoxTaggedFriends.TabIndex = 5;
             // 
             // AlbumScannerForm
             // 
@@ -91,14 +100,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(1882, 972);
-            this.Controls.Add(this.listviewAlbumPhotos);
+            this.Controls.Add(this.checkedListBoxTaggedFriends);
+            this.Controls.Add(this.listViewAlbumPhotos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonScan);
-            this.Controls.Add(this.pictureboxAlbumPicture);
-            this.Controls.Add(this.listboxAlbumList);
+            this.Controls.Add(this.pictureBoxAlbumPicture);
+            this.Controls.Add(this.listBoxAlbumList);
             this.Name = "AlbumScannerForm";
             this.Text = "AlbumScannerForm";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureboxAlbumPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbumPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -106,10 +116,11 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listboxAlbumList;
-        private System.Windows.Forms.PictureBox pictureboxAlbumPicture;
+        private System.Windows.Forms.ListBox listBoxAlbumList;
+        private System.Windows.Forms.PictureBox pictureBoxAlbumPicture;
         private System.Windows.Forms.Button buttonScan;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView listviewAlbumPhotos;
+        private System.Windows.Forms.ListView listViewAlbumPhotos;
+        private System.Windows.Forms.CheckedListBox checkedListBoxTaggedFriends;
     }
 }
