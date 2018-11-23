@@ -18,7 +18,7 @@ namespace Ex01.UI
             initBlastFromThePastForm();
         }
 
-        public void initBlastFromThePastForm()
+        private void initBlastFromThePastForm()
         {
             addYears();
         }

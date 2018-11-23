@@ -15,6 +15,11 @@ namespace Ex01.UI
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
+            loginWithFacebook();
+        }
+
+        private void loginWithFacebook()
+        {
             try
             {
                 LoginResult loginResult = Login.LoginWithFacebook();
