@@ -127,7 +127,7 @@
   <data name="Login" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Album Scanner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="AlbumScanner" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Album Scanner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BlastFromThePast" type="System.Resources.ResXFileRef, System.Windows.Forms">

@@ -1,18 +1,15 @@
-﻿using FacebookWrapper;
-using FacebookWrapper.ObjectModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Drawing;
+using FacebookWrapper.ObjectModel;
 
 namespace Ex01.Services
 {
     public class AlbumScanner
     {
         private readonly FacebookObjectCollection<Album> r_Albums;
-        public Album ScannedAlbum { get; set; }
         private readonly string r_UserId;
+
+        public Album ScannedAlbum { get; set; }
 
         public FacebookObjectCollection<Album> Albums
         {
@@ -49,6 +46,7 @@ namespace Ex01.Services
                     }
                 }
             }
+
             return imageList;
         }
 
@@ -85,6 +83,7 @@ namespace Ex01.Services
                             break;
                         }
                     }
+
                     if (tagFound || i_ChosenTaggedPersonList.Count == 0)
                     {
                         tagFound = v_TagFound;

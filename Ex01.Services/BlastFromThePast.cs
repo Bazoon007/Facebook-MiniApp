@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
 
 namespace Ex01.Services
 {
     public class BlastFromThePast
     {
+        private static readonly Random sr_RandomPostPicker = new Random();
         private readonly FacebookObjectCollection<Post> r_Posts;
         private readonly string r_UserId;
-        private static readonly Random sr_RandomPostPicker = new Random();
 
         public FacebookObjectCollection<Post> Posts
         {
@@ -39,7 +36,7 @@ namespace Ex01.Services
         public ISet<int> CreateYearSet()
         {
             ISet<int> yearSet = new HashSet<int>();
-            foreach(Post post in Posts)
+            foreach (Post post in Posts)
             {
                 yearSet.Add(post.CreatedTime.Value.Year);
             }
@@ -57,6 +54,7 @@ namespace Ex01.Services
                     postList.Add(post);
                 }
             }
+
             return postList;
         }
 
@@ -76,7 +74,7 @@ namespace Ex01.Services
             foreach (Post post in postList)
             {
                 if (post.LikedBy.Count > MaxLikes)
-                {
+                {                 
                     MaxLikes = post.LikedBy.Count;
                     mostLikedPost = post;
                 }
@@ -84,6 +82,5 @@ namespace Ex01.Services
 
             return mostLikedPost != null ? mostLikedPost : null;
         }
-
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Ex01.UI
 {
-    partial class LoginForm
+    public partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -47,6 +48,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(1337, 631);
             this.Controls.Add(this.buttonLogin);
             this.Name = "LoginForm";
@@ -60,4 +62,3 @@
         private System.Windows.Forms.Button buttonLogin;
     }
 }
-

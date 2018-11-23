@@ -8,7 +8,6 @@ namespace Ex01.UI
 {
     public partial class LoginForm : Form
     {
-
         public LoginForm()
         {
             InitializeComponent();
@@ -16,17 +15,17 @@ namespace Ex01.UI
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            LoginResult loginResult = Login.LoginWithFacebook();
-            if (loginResult != null)
+            try
             {
+                LoginResult loginResult = Login.LoginWithFacebook();
                 DialogResult dialogResult = new MainForm(loginResult).ShowDialog();
                 Hide();
-                if(dialogResult == DialogResult.Cancel)
+                if (dialogResult == DialogResult.Cancel)
                 {
                     Show();
                 }
             }
-            else
+            catch
             {
                 MessageBox.Show("Something went wrong - please try again");
             }

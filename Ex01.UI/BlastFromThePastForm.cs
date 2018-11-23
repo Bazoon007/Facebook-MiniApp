@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using FacebookWrapper;
-using FacebookWrapper.ObjectModel;
 using System.Windows.Forms;
+using FacebookWrapper.ObjectModel;
 using Ex01.Services;
 
 namespace Ex01.UI
@@ -15,6 +10,7 @@ namespace Ex01.UI
     public partial class BlastFromThePastForm : Form
     {
         private readonly BlastFromThePast r_BlastFromThePast; 
+
         public BlastFromThePastForm(User i_User)
         {
             InitializeComponent();
@@ -35,17 +31,18 @@ namespace Ex01.UI
         private void addYears()
         {
             ISet<int> yearSet = r_BlastFromThePast.CreateYearSet();
-            foreach(int year in yearSet)
+            foreach (int year in yearSet)
             {
                 comboBoxYearPicker.Items.Add(year);
             }
+
             comboBoxYearPicker.SelectedIndex = 1;
         }
 
         private void executeBlast()
         {
             string blastType = getBlastType();
-            int selectedYear = (int) comboBoxYearPicker.SelectedItem;
+            int selectedYear = (int)comboBoxYearPicker.SelectedItem;
             Post selectedPost = null;
             if (!string.IsNullOrEmpty(blastType))
             {
@@ -57,6 +54,7 @@ namespace Ex01.UI
                 {
                     selectedPost = r_BlastFromThePast.MostLikedPost(selectedYear);
                 }
+
                 if (!string.IsNullOrEmpty(selectedPost.Message))
                 {
                     textBoxPostContent.Text = selectedPost.Message;
@@ -65,6 +63,10 @@ namespace Ex01.UI
                 {
                     textBoxPostContent.Text = "No Textual Content";
                 }
+
+                labelDate.Text = selectedPost.CreatedTime.ToString();
+                labelLikes.Text = selectedPost.LikedBy.Count.ToString();
+                labelComments.Text = selectedPost.Comments.Count.ToString(); 
             }
             else
             {
@@ -77,7 +79,7 @@ namespace Ex01.UI
             string blastType = string.Empty;
             foreach (RadioButton radioButton in groupBoxBlastType.Controls)
             {
-                if(radioButton.Checked)
+                if (radioButton.Checked)
                 {
                     blastType = radioButton.Text;
                     break;

@@ -63,9 +63,9 @@ namespace Ex01.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Album_Scanner {
+        internal static System.Drawing.Bitmap AlbumScanner {
             get {
-                object obj = ResourceManager.GetObject("Album Scanner", resourceCulture);
+                object obj = ResourceManager.GetObject("AlbumScanner", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

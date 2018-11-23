@@ -1,13 +1,8 @@
-﻿using Ex01.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using FacebookWrapper;
+using Ex01.Services;
 using FacebookWrapper.ObjectModel;
 
 namespace Ex01.UI
@@ -16,6 +11,7 @@ namespace Ex01.UI
     {
         private readonly AlbumScanner r_AlbumScanner;
         private readonly ImageList imageListAlbumPhoto = new ImageList();
+
         public AlbumScannerForm(User i_User)
         {
             InitializeComponent();
@@ -59,13 +55,14 @@ namespace Ex01.UI
                 r_AlbumScanner.ScannedAlbum = listBoxAlbumList.SelectedItem as Album;
                 listViewAlbumPhotos.Items.Clear();
                 imageListAlbumPhoto.Images.Clear();
-                List<Image> imageList = (List<Image>) r_AlbumScanner.FetchPhotosByFilter(i_Filter, createTaggedPersonList());
+                List<Image> imageList = (List<Image>)r_AlbumScanner.FetchPhotosByFilter(i_Filter, createTaggedPersonList());
                 addImagestoImageList(imageList);
                 for (int i = 0; i < imageListAlbumPhoto.Images.Count; i++)
                 {
                     listViewAlbumPhotos.Items.Add(string.Empty, i);
                 }
-                List<string> taggedPersonList = (List<string>) r_AlbumScanner.FetchTaggedPersonList(i_Filter);
+
+                List<string> taggedPersonList = (List<string>)r_AlbumScanner.FetchTaggedPersonList(i_Filter);
                 addTaggedFriendNameToCheckedListBox(taggedPersonList);
                 bool enableScanButtons = imageListAlbumPhoto.Images.Count > 0;
                 buttonLikeAllPhotos.Enabled = enableScanButtons;
@@ -100,7 +97,7 @@ namespace Ex01.UI
             }
             catch
             {
-                MessageBox.Show(string.Format("Error - cannoot like photos in album {0} :(.", r_AlbumScanner.ScannedAlbum.Name));   
+                MessageBox.Show(string.Format("Error - cannot like photos in album {0} :(.", r_AlbumScanner.ScannedAlbum.Name));   
             }
         }
 
@@ -110,6 +107,7 @@ namespace Ex01.UI
             {
                 checkedListBoxTaggedFriends.SetItemChecked(i, false);
             }
+
             showAlbumPhotosByFilter(false);
         }
 
@@ -121,19 +119,14 @@ namespace Ex01.UI
         private void fetchAlbums()
         {
             listViewAlbumPhotos.View = View.Details;
-            listViewAlbumPhotos.Columns.Add("Photos", 200);
-            imageListAlbumPhoto.ImageSize = new Size(250, 250);
+            listViewAlbumPhotos.Columns.Add(string.Empty, 256);
+            imageListAlbumPhoto.ImageSize = new Size(256, 256);
             listViewAlbumPhotos.SmallImageList = imageListAlbumPhoto;
-            int j = 0;
             foreach (Album album in r_AlbumScanner.Albums)
             {
-                if (j >= 6)
-                {
-                    break;
-                }
                 listBoxAlbumList.Items.Add(album);
-                j++;
             }
+
             listBoxAlbumList.DisplayMember = "Name";
         }
         
@@ -152,6 +145,7 @@ namespace Ex01.UI
             {
                 taggedPersonList.Add(taggedPersonName);
             }
+
             return taggedPersonList;
         }
     }
