@@ -1,0 +1,10 @@
+==========================Exercise Checking Report==========================
+Exercise No...........: 1
+First Student Details.: 305469553 - Amir Padan
+Second Student Details: 307845644 - Ohad Yehezkel
+Delivery Date.........: 23 - Nov - 2018
+Delivered In Delay....: 10 Hours
+Delay Reason..........: No Special Reason
+Visual Studio Version.: 2017
+Comments..............: 
+========================End Exercise Checking Report========================

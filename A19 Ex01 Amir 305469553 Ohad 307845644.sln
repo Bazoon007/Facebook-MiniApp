@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex01.UI", "Ex01.UI\Ex01.UI.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex01.Services", "Ex01.Services\Ex01.Services.csproj", "{A4FBE1B5-B2AE-40C5-88E8-0CA2F6CAF00A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D340E414-59F3-48F9-8561-C9336FE3BB2A}"
+	ProjectSection(SolutionItems) = preProject
+		A19 Ex01 Amir 305469553 Ohad 307845644.docx = A19 Ex01 Amir 305469553 Ohad 307845644.docx
+		Exercise Checking Report.txt = Exercise Checking Report.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
