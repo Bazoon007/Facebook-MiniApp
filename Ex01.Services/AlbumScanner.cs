@@ -19,15 +19,7 @@ namespace Ex01.Services
             }
         }
 
-        public string UserId
-        {
-            get
-            {
-                return r_UserId;
-            }
-        }
-
-        public AlbumScanner(User i_User)
+        public AlbumScanner(UserFacade i_User)
         {
             r_Albums = i_User.Albums;
             r_UserId = i_User.Id;
@@ -119,7 +111,7 @@ namespace Ex01.Services
             bool likedByMe = !v_LikedByMe;
             foreach (User user in i_Photo.LikedBy)
             {
-                if (user.Id.Equals(UserId))
+                if (user.Id.Equals(user.Id))
                 {
                     likedByMe = v_LikedByMe;
                     break;

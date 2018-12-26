@@ -9,32 +9,34 @@ namespace Ex01.UI
     public partial class MainForm : Form
     {
         private readonly AppSettings r_AppSettings;
-        private User m_User;
+        private readonly UserFacade r_User;
 
-        public MainForm(LoginResult i_LoginResult)
+        public MainForm(UserFacade i_User)
         {
             InitializeComponent();
-            m_User = i_LoginResult.LoggedInUser;
+            r_User = i_User;
             r_AppSettings  = AppSettings.LoadFromFile();
             initMainForm();
         }
 
         private void initMainForm()
         {
-            labelWelcome.Text = string.Format("Welcome, {0} {1}!", m_User.FirstName, m_User.LastName);
-            pictureBoxProfilePicture.LoadAsync(m_User.PictureNormalURL);
+            /*
+            labelWelcome.Text = string.Format("Welcome, {0} {1}!", r_User.FirstName, r_User.LastName);
+            pictureBoxProfilePicture.LoadAsync(r_User.PictureNormalURL);
             buttonLogout.DialogResult = DialogResult.Cancel;
-            setDetailsLabel(labelBirthday, m_User.Birthday);
-            setDetailsLabel(labelGender, m_User.Gender);
-            setDetailsLabel(labelEmail, m_User.Email);
-            setDetailsLabel(labelHometown, m_User.Hometown);
-            setDetailsLabel(labelNoOfFriends, m_User.Friends.Count);
+            setDetailsLabel(labelBirthday, r_User.Birthday);
+            setDetailsLabel(labelGender, r_User.Gender);
+            setDetailsLabel(labelEmail, r_User.Email);
+            setDetailsLabel(labelHometown, r_User.Hometown);
+            setDetailsLabel(labelNoOfFriends, r_User.Friends.Count);
+            */
             checkBoxRememberMe.Checked = r_AppSettings.RememberMe;
         }
 
         private void buttonAlbumScanner_Click(object sender, EventArgs e)
         {
-            new AlbumScannerForm(m_User).Show();
+            new AlbumScannerForm(r_User).Show();
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
@@ -45,7 +47,7 @@ namespace Ex01.UI
 
         private void buttonBlastFromThePast_Click(object sender, EventArgs e)
         {
-            new BlastFromThePastForm(m_User).Show();
+            new BlastFromThePastForm(r_User).Show();
         }
 
         private void setDetailsLabel(Label i_Label, object i_Value)

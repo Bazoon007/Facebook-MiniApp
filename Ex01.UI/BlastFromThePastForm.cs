@@ -11,7 +11,7 @@ namespace Ex01.UI
     {
         private readonly BlastFromThePast r_BlastFromThePast; 
 
-        public BlastFromThePastForm(User i_User)
+        public BlastFromThePastForm(UserFacade i_User)
         {
             InitializeComponent();
             r_BlastFromThePast = new BlastFromThePast(i_User);

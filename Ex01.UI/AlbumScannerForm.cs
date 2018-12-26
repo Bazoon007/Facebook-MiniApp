@@ -12,7 +12,7 @@ namespace Ex01.UI
         private readonly AlbumScanner r_AlbumScanner;
         private readonly ImageList imageListAlbumPhoto = new ImageList();
 
-        public AlbumScannerForm(User i_User)
+        public AlbumScannerForm(UserFacade i_User)
         {
             InitializeComponent();
             r_AlbumScanner = new AlbumScanner(i_User);

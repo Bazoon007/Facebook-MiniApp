@@ -23,7 +23,8 @@ namespace Ex01.UI
             try
             {
                 LoginResult loginResult = Login.LoginWithFacebook();
-                DialogResult dialogResult = new MainForm(loginResult).ShowDialog();
+                UserFacade user = new UserFacade(loginResult.LoggedInUser);
+                DialogResult dialogResult = new MainForm(user).ShowDialog();
                 Hide();
                 if (dialogResult == DialogResult.Cancel)
                 {

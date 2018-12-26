@@ -50,7 +50,13 @@
     <Compile Include="AlbumScanner.cs" />
     <Compile Include="AppSettings.cs" />
     <Compile Include="BlastFromThePast.cs" />
+    <Compile Include="FeatureCache.cs" />
     <Compile Include="Login.cs" />
+    <Compile Include="UserFacade.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Properties\DataSources\UserFacade.datasource" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

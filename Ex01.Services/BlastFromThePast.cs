@@ -9,34 +9,16 @@ namespace Ex01.Services
     {
         private static readonly Random sr_RandomPostPicker = new Random();
         private readonly FacebookObjectCollection<Post> r_Posts;
-        private readonly string r_UserId;
 
-        public FacebookObjectCollection<Post> Posts
+        public BlastFromThePast(UserFacade i_User)
         {
-            get
-            {
-                return r_Posts;
-            }
-        }
-
-        public string UserId
-        {
-            get
-            {
-                return r_UserId;
-            }
-        }
-
-        public BlastFromThePast(User i_User)
-        {
-            r_UserId = i_User.Id;
-            r_Posts = i_User.WallPosts;
+            r_Posts = i_User.Posts;
         }
 
         public ISet<int> CreateYearSet()
         {
             ISet<int> yearSet = new HashSet<int>();
-            foreach (Post post in Posts)
+            foreach (Post post in r_Posts)
             {
                 yearSet.Add(post.CreatedTime.Value.Year);
             }
@@ -47,7 +29,7 @@ namespace Ex01.Services
         private IList<Post> createPostYearList(int i_Year)
         {
             IList<Post> postList = new List<Post>();
-            foreach (Post post in Posts)
+            foreach (Post post in r_Posts)
             {
                 if (post.CreatedTime.Value.Year == i_Year)
                 {
