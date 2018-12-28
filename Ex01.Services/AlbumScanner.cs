@@ -96,29 +96,14 @@ namespace Ex01.Services
             const bool v_LikeSuccessful = true;
             foreach (Photo photo in ScannedAlbum.Photos)
             {
-                if (!photoLikedByMe(photo))
+                PhotoProxy photoProxy = new PhotoProxy() { Photo = photo };
+                if (!photoProxy.photoLikedByMe(r_UserId))
                 {
                     photo.Like();
                 }
             }
 
             return v_LikeSuccessful;
-        }
-
-        private bool photoLikedByMe(Photo i_Photo)
-        {
-            const bool v_LikedByMe = true;
-            bool likedByMe = !v_LikedByMe;
-            foreach (User user in i_Photo.LikedBy)
-            {
-                if (user.Id.Equals(user.Id))
-                {
-                    likedByMe = v_LikedByMe;
-                    break;
-                }
-            }
-
-            return likedByMe;
         }
     }   
 }
