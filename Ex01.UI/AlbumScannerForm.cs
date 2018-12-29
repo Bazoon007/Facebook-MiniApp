@@ -1,29 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 using Ex01.Services;
 using FacebookWrapper.ObjectModel;
 
 namespace Ex01.UI
 {
-    public partial class AlbumScannerForm : Form
+    public partial class AlbumScannerForm : Form, IFeatureFrom
     {
         private readonly AlbumScanner r_AlbumScanner;
         private readonly ImageList imageListAlbumPhoto = new ImageList();
+        private readonly IList<IPhotoComponent> r_SelectedPhotosList = new List<IPhotoComponent>();
+        private int m_NumberOfPhotosToLike = 0;
+
+        public FacebookFeature FacebookFeature
+        {
+            get
+            {
+                return r_AlbumScanner;
+            }
+        }
 
         public AlbumScannerForm(UserFacade i_User)
         {
             InitializeComponent();
             r_AlbumScanner = new AlbumScanner(i_User);
-            initAlbumScannerForm();
-        }
-
-        private void initAlbumScannerForm()
-        {
-            listBoxAlbumList.Items.Clear();
-            listViewAlbumPhotos.Items.Clear();
-            fetchAlbums();
+            ((IFeatureFrom)this).InitFeatureForm();
         }
 
         private void listBoxAlbumList_SelectedIndexChanged(object sender, EventArgs e)
@@ -44,30 +48,35 @@ namespace Ex01.UI
 
         private void buttonScan_Click(object sender, EventArgs e)
         {
-            checkedListBoxTaggedFriends.Items.Clear();
-            showAlbumPhotosByFilter(false);
+            ((IFeatureFrom)this).ExecuteFeature();
         }
 
-        private void showAlbumPhotosByFilter(bool i_Filter)
+        private void showAlbumPhotosByFilter(bool i_Filter, bool i_Reset)
         {
-            if (listBoxAlbumList.SelectedItem != null)
+            if (r_AlbumScanner.ScannedAlbum != null)
             {
-                r_AlbumScanner.ScannedAlbum = listBoxAlbumList.SelectedItem as Album;
-                listViewAlbumPhotos.Items.Clear();
+                listViewAlbumPhotos.Invoke(new Action(() => listViewAlbumPhotos.Items.Clear()));
                 imageListAlbumPhoto.Images.Clear();
-                List<Image> imageList = (List<Image>)r_AlbumScanner.FetchPhotosByFilter(i_Filter, createTaggedPersonList());
-                addImagestoImageList(imageList);
+                List<PhotoProxy> photoList = (List<PhotoProxy>)r_AlbumScanner.FetchPhotosByFilter(i_Filter, createTaggedPersonList());
+                addImagestoImageList(photoList);
                 for (int i = 0; i < imageListAlbumPhoto.Images.Count; i++)
                 {
-                    listViewAlbumPhotos.Items.Add(string.Empty, i);
+                    ListViewItem item = new ListViewItem();
+                    item.Text = photoList[i].Photo.Name;
+                    item.Tag = photoList[i];
+                    item.ImageIndex = i;
+                    listViewAlbumPhotos.Invoke(new Action(() => listViewAlbumPhotos.Items.Add(item)));              
                 }
 
                 List<string> taggedPersonList = (List<string>)r_AlbumScanner.FetchTaggedPersonList(i_Filter);
                 addTaggedFriendNameToCheckedListBox(taggedPersonList);
                 bool enableScanButtons = imageListAlbumPhoto.Images.Count > 0;
-                buttonLikeAllPhotos.Enabled = enableScanButtons;
-                buttonTagFilter.Enabled = enableScanButtons;
-                buttonResetFilter.Enabled = enableScanButtons;             
+                buttonTagFilter.Invoke(new Action(() => buttonTagFilter.Enabled = enableScanButtons));
+                buttonResetFilter.Invoke(new Action(() => buttonResetFilter.Enabled = enableScanButtons));
+                if (!i_Filter && !i_Reset)
+                { 
+                    r_SelectedPhotosList.Add(new CompositePhotoProxy());
+                }
             }
             else
             {
@@ -81,23 +90,8 @@ namespace Ex01.UI
             {
                 if (!checkedListBoxTaggedFriends.Items.Contains(taggedPersonName))
                 {
-                    checkedListBoxTaggedFriends.Items.Add(taggedPersonName);
+                    checkedListBoxTaggedFriends.Invoke(new Action(() => checkedListBoxTaggedFriends.Items.Add(taggedPersonName)));
                 }
-            }
-        }
-
-        private void buttonLikeAllPhotos_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (r_AlbumScanner.LikeAllPhotos())
-                {
-                    MessageBox.Show(string.Format("Liking all photos in album {0} - complete!!", r_AlbumScanner.ScannedAlbum.Name));
-                }
-            }
-            catch
-            {
-                MessageBox.Show(string.Format("Error - cannot like photos in album {0} :(.", r_AlbumScanner.ScannedAlbum.Name));   
             }
         }
 
@@ -108,33 +102,35 @@ namespace Ex01.UI
                 checkedListBoxTaggedFriends.SetItemChecked(i, false);
             }
 
-            showAlbumPhotosByFilter(false);
+            r_AlbumScanner.ScannedAlbum = listBoxAlbumList.SelectedItem as Album;
+            new Thread(() => showAlbumPhotosByFilter(false, true)).Start();
         }
 
         private void buttonTagFilter_Click(object sender, EventArgs e)
         {
-            showAlbumPhotosByFilter(true);
+            r_AlbumScanner.ScannedAlbum = listBoxAlbumList.SelectedItem as Album;
+            new Thread(() => showAlbumPhotosByFilter(true, false)).Start();
         }
 
         private void fetchAlbums()
         {
-            listViewAlbumPhotos.View = View.Details;
-            listViewAlbumPhotos.Columns.Add(string.Empty, 256);
             imageListAlbumPhoto.ImageSize = new Size(256, 256);
+            listViewAlbumPhotos.View = View.Details;
+            listViewAlbumPhotos.Columns.Add("Photo", 256);
             listViewAlbumPhotos.SmallImageList = imageListAlbumPhoto;
             foreach (Album album in r_AlbumScanner.Albums)
             {
-                listBoxAlbumList.Items.Add(album);
+                listBoxAlbumList.Invoke(new Action(() => listBoxAlbumList.Items.Add(album)));
             }
 
-            listBoxAlbumList.DisplayMember = "Name";
+            listBoxAlbumList.Invoke(new Action(() => listBoxAlbumList.DisplayMember = "Name"));
         }
         
-        private void addImagestoImageList(IList<Image> i_ImageList)
+        private void addImagestoImageList(IList<PhotoProxy> i_PhotoList)
         {
-            foreach (Image image in i_ImageList)
+            foreach (PhotoProxy photo in i_PhotoList)
             {
-                imageListAlbumPhoto.Images.Add(image);
+                imageListAlbumPhoto.Images.Add(photo.Photo.ImageNormal);
             }
         }
 
@@ -147,6 +143,74 @@ namespace Ex01.UI
             }
 
             return taggedPersonList;
+        }
+
+         void IFeatureFrom.InitFeatureForm()
+        {
+            listBoxAlbumList.Items.Clear();
+            listViewAlbumPhotos.Items.Clear();
+            new Thread(fetchAlbums).Start();
+        }
+
+        void IFeatureFrom.ExecuteFeature()
+        {
+            checkedListBoxTaggedFriends.Items.Clear();
+            r_AlbumScanner.ScannedAlbum = listBoxAlbumList.SelectedItem as Album;
+            new Thread(() => showAlbumPhotosByFilter(false, false)).Start();
+        }
+
+        private void listViewAlbumPhotos_Click(object sender, EventArgs e)
+        {
+            selectPhoto(sender);
+        }
+
+        private void selectPhoto(object i_Sender)
+        {
+            IPhotoComponent photoProxy = (PhotoProxy)(i_Sender as ListView).SelectedItems[0].Tag;
+            try
+            {
+                r_SelectedPhotosList[r_SelectedPhotosList.Count - 1].Add(photoProxy);
+            }
+            catch (NotImplementedException)
+            {
+                if (!photoProxy.Equals(r_SelectedPhotosList[r_SelectedPhotosList.Count - 1]))
+                {
+                    r_SelectedPhotosList[r_SelectedPhotosList.Count - 1] = photoProxy;
+                }
+                else
+                {
+                    r_SelectedPhotosList[r_SelectedPhotosList.Count - 1] = new PhotoProxy();
+                }
+            }
+
+            m_NumberOfPhotosToLike = 0;
+            foreach (IPhotoComponent photoComponent in r_SelectedPhotosList)
+            {
+                m_NumberOfPhotosToLike += photoComponent.GetChildren().Count;
+            }
+
+            labelNumberOfPhotosToLike.Text = m_NumberOfPhotosToLike.ToString();
+            buttonLikeSelectedPhotos.Enabled = m_NumberOfPhotosToLike > 0;
+        }
+
+        private void buttonLikeSelectedPhotos_Click(object sender, EventArgs e)
+        {
+            new Thread(likeSelectedPhotos).Start();
+        }
+
+        private void likeSelectedPhotos()
+        {
+            try
+            {
+                if (r_AlbumScanner.LikeAllPhotos(r_SelectedPhotosList))
+                {
+                    MessageBox.Show(string.Format("Liking all selected photos - complete!!"));
+                }
+            }
+            catch
+            {
+                MessageBox.Show(string.Format("Error - not all selected photos were liked :(."));
+            }
         }
     }
 }

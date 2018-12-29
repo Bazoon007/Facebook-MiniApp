@@ -5,14 +5,14 @@ using FacebookWrapper.ObjectModel;
 
 namespace Ex01.Services
 {
-    public class BlastFromThePast
+    public class BlastFromThePast : FacebookFeature
     {
         private static readonly Random sr_RandomPostPicker = new Random();
         private readonly FacebookObjectCollection<Post> r_Posts;
 
-        public BlastFromThePast(UserFacade i_User)
+        public BlastFromThePast(UserFacade i_User) : base(i_User)
         {
-            r_Posts = i_User.Posts;
+            r_Posts = i_User.WallPosts;
         }
 
         public ISet<int> CreateYearSet()

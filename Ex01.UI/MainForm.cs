@@ -21,22 +21,15 @@ namespace Ex01.UI
 
         private void initMainForm()
         {
-            /*
-            labelWelcome.Text = string.Format("Welcome, {0} {1}!", r_User.FirstName, r_User.LastName);
+            userFacadeBindingSource.DataSource = r_User;
             pictureBoxProfilePicture.LoadAsync(r_User.PictureNormalURL);
             buttonLogout.DialogResult = DialogResult.Cancel;
-            setDetailsLabel(labelBirthday, r_User.Birthday);
-            setDetailsLabel(labelGender, r_User.Gender);
-            setDetailsLabel(labelEmail, r_User.Email);
-            setDetailsLabel(labelHometown, r_User.Hometown);
-            setDetailsLabel(labelNoOfFriends, r_User.Friends.Count);
-            */
             checkBoxRememberMe.Checked = r_AppSettings.RememberMe;
         }
 
         private void buttonAlbumScanner_Click(object sender, EventArgs e)
         {
-            new AlbumScannerForm(r_User).Show();
+            FeatureFormFactory.CreateForm(r_User, (sender as Button).Name).Show();
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
@@ -47,7 +40,7 @@ namespace Ex01.UI
 
         private void buttonBlastFromThePast_Click(object sender, EventArgs e)
         {
-            new BlastFromThePastForm(r_User).Show();
+            FeatureFormFactory.CreateForm(r_User, (sender as Button).Name).Show();
         }
 
         private void setDetailsLabel(Label i_Label, object i_Value)

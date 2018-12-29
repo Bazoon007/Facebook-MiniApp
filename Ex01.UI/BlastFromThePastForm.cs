@@ -2,30 +2,34 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Threading;
 using FacebookWrapper.ObjectModel;
 using Ex01.Services;
 
 namespace Ex01.UI
 {
-    public partial class BlastFromThePastForm : Form
+    public partial class BlastFromThePastForm : Form, IFeatureFrom
     {
-        private readonly BlastFromThePast r_BlastFromThePast; 
+        private readonly BlastFromThePast r_BlastFromThePast;
+
+        public FacebookFeature FacebookFeature
+        {
+            get
+            {
+                return r_BlastFromThePast;
+            }
+        }
 
         public BlastFromThePastForm(UserFacade i_User)
         {
             InitializeComponent();
             r_BlastFromThePast = new BlastFromThePast(i_User);
-            initBlastFromThePastForm();
-        }
-
-        private void initBlastFromThePastForm()
-        {
-            addYears();
+            ((IFeatureFrom)this).InitFeatureForm();
         }
 
         private void buttonExecuteBlast_Click(object sender, EventArgs e)
         {
-            executeBlast();
+            ((IFeatureFrom)this).ExecuteFeature();
         }
 
         private void addYears()
@@ -33,40 +37,38 @@ namespace Ex01.UI
             ISet<int> yearSet = r_BlastFromThePast.CreateYearSet();
             foreach (int year in yearSet)
             {
-                comboBoxYearPicker.Items.Add(year);
+                comboBoxYearPicker.Invoke(new Action(() => comboBoxYearPicker.Items.Add(year)));
             }
 
-            comboBoxYearPicker.SelectedIndex = 1;
+            comboBoxYearPicker.Invoke(new Action(() => comboBoxYearPicker.SelectedIndex = 1));
         }
 
-        private void executeBlast()
+        private void executeBlast(int i_SelectedYear, string i_BlastType)
         {
-            string blastType = getBlastType();
-            int selectedYear = (int)comboBoxYearPicker.SelectedItem;
             Post selectedPost = null;
-            if (!string.IsNullOrEmpty(blastType))
+            if (!string.IsNullOrEmpty(i_BlastType))
             {
-                if (blastType == "Random")
+                if (i_BlastType == "Random")
                 {
-                    selectedPost = r_BlastFromThePast.RandomPost(selectedYear);
+                    selectedPost = r_BlastFromThePast.RandomPost(i_SelectedYear);
                 }
-                else if (blastType == "Most Liked")
+                else if (i_BlastType == "Most Liked")
                 {
-                    selectedPost = r_BlastFromThePast.MostLikedPost(selectedYear);
+                    selectedPost = r_BlastFromThePast.MostLikedPost(i_SelectedYear);
                 }
 
                 if (!string.IsNullOrEmpty(selectedPost.Message))
                 {
-                    textBoxPostContent.Text = selectedPost.Message;
+                    textBoxPostContent.Invoke(new Action(() => textBoxPostContent.Text = selectedPost.Message));
                 }
                 else
                 {
-                    textBoxPostContent.Text = "No Textual Content";
+                    textBoxPostContent.Invoke(new Action(() => textBoxPostContent.Text = "No Textual Content"));
                 }
 
-                labelDate.Text = selectedPost.CreatedTime.ToString();
-                labelLikes.Text = selectedPost.LikedBy.Count.ToString();
-                labelComments.Text = selectedPost.Comments.Count.ToString(); 
+                labelDate.Invoke(new Action(() => labelDate.Text = selectedPost.CreatedTime.ToString()));
+                labelLikes.Invoke(new Action(() => labelLikes.Text = selectedPost.LikedBy.Count.ToString()));
+                labelComments.Invoke(new Action(() => labelComments.Text = selectedPost.Comments.Count.ToString())); 
             }
             else
             {
@@ -94,6 +96,18 @@ namespace Ex01.UI
             Size size = TextRenderer.MeasureText(textBoxPostContent.Text, textBoxPostContent.Font);
             textBoxPostContent.Width = size.Width;
             textBoxPostContent.Height = size.Height * 2;
+        }
+
+        void IFeatureFrom.InitFeatureForm()
+        {
+            new Thread(addYears).Start();
+        }
+
+        void IFeatureFrom.ExecuteFeature()
+        {
+            int selectedYear = (int)comboBoxYearPicker.SelectedItem;
+            string blastType = getBlastType();
+            new Thread(() => executeBlast(selectedYear, blastType)).Start();
         }
     }
 }

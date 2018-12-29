@@ -51,7 +51,7 @@
     <Compile Include="AppSettings.cs" />
     <Compile Include="BlastFromThePast.cs" />
     <Compile Include="CompositePhotoProxy.cs" />
-    <Compile Include="FeatureCache.cs" />
+    <Compile Include="FacebookFeature.cs" />
     <Compile Include="IPhotoComponent.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="PhotoProxy.cs" />

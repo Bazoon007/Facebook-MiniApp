@@ -37,10 +37,12 @@
             this.checkedListBoxTaggedFriends = new System.Windows.Forms.CheckedListBox();
             this.buttonTagFilter = new System.Windows.Forms.Button();
             this.buttonResetFilter = new System.Windows.Forms.Button();
-            this.buttonLikeAllPhotos = new System.Windows.Forms.Button();
+            this.buttonLikeSelectedPhotos = new System.Windows.Forms.Button();
             this.pictureBoxAlbumPicture = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.labelNumberOfPhotosToLike = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbumPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,9 +82,10 @@
             // 
             this.listViewAlbumPhotos.Location = new System.Drawing.Point(433, 100);
             this.listViewAlbumPhotos.Name = "listViewAlbumPhotos";
-            this.listViewAlbumPhotos.Size = new System.Drawing.Size(530, 484);
+            this.listViewAlbumPhotos.Size = new System.Drawing.Size(509, 484);
             this.listViewAlbumPhotos.TabIndex = 4;
             this.listViewAlbumPhotos.UseCompatibleStateImageBehavior = false;
+            this.listViewAlbumPhotos.Click += new System.EventHandler(this.listViewAlbumPhotos_Click);
             // 
             // checkedListBoxTaggedFriends
             // 
@@ -118,27 +121,27 @@
             this.buttonResetFilter.UseVisualStyleBackColor = true;
             this.buttonResetFilter.Click += new System.EventHandler(this.buttonResetFilter_Click);
             // 
-            // buttonLikeAllPhotos
+            // buttonLikeSelectedPhotos
             // 
-            this.buttonLikeAllPhotos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.buttonLikeAllPhotos.Enabled = false;
-            this.buttonLikeAllPhotos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.buttonLikeAllPhotos.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonLikeAllPhotos.Image = ((System.Drawing.Image)(resources.GetObject("buttonLikeAllPhotos.Image")));
-            this.buttonLikeAllPhotos.Location = new System.Drawing.Point(225, 616);
-            this.buttonLikeAllPhotos.Name = "buttonLikeAllPhotos";
-            this.buttonLikeAllPhotos.Size = new System.Drawing.Size(388, 265);
-            this.buttonLikeAllPhotos.TabIndex = 7;
-            this.buttonLikeAllPhotos.Text = "Like all photos in album!";
-            this.buttonLikeAllPhotos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.buttonLikeAllPhotos.UseVisualStyleBackColor = false;
-            this.buttonLikeAllPhotos.Click += new System.EventHandler(this.buttonLikeAllPhotos_Click);
+            this.buttonLikeSelectedPhotos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.buttonLikeSelectedPhotos.Enabled = false;
+            this.buttonLikeSelectedPhotos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.buttonLikeSelectedPhotos.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonLikeSelectedPhotos.Image = ((System.Drawing.Image)(resources.GetObject("buttonLikeSelectedPhotos.Image")));
+            this.buttonLikeSelectedPhotos.Location = new System.Drawing.Point(120, 599);
+            this.buttonLikeSelectedPhotos.Name = "buttonLikeSelectedPhotos";
+            this.buttonLikeSelectedPhotos.Size = new System.Drawing.Size(388, 265);
+            this.buttonLikeSelectedPhotos.TabIndex = 7;
+            this.buttonLikeSelectedPhotos.Text = "Like!";
+            this.buttonLikeSelectedPhotos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.buttonLikeSelectedPhotos.UseVisualStyleBackColor = false;
+            this.buttonLikeSelectedPhotos.Click += new System.EventHandler(this.buttonLikeSelectedPhotos_Click);
             // 
             // pictureBoxAlbumPicture
             // 
-            this.pictureBoxAlbumPicture.Location = new System.Drawing.Point(1189, 82);
+            this.pictureBoxAlbumPicture.Location = new System.Drawing.Point(1283, 139);
             this.pictureBoxAlbumPicture.Name = "pictureBoxAlbumPicture";
-            this.pictureBoxAlbumPicture.Size = new System.Drawing.Size(605, 392);
+            this.pictureBoxAlbumPicture.Size = new System.Drawing.Size(417, 277);
             this.pictureBoxAlbumPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxAlbumPicture.TabIndex = 1;
             this.pictureBoxAlbumPicture.TabStop = false;
@@ -163,16 +166,40 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "Tagged People";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label4.Location = new System.Drawing.Point(114, 888);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(291, 32);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Total photos to like :";
+            // 
+            // labelNumberOfPhotosToLike
+            // 
+            this.labelNumberOfPhotosToLike.AutoSize = true;
+            this.labelNumberOfPhotosToLike.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.labelNumberOfPhotosToLike.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelNumberOfPhotosToLike.Location = new System.Drawing.Point(427, 888);
+            this.labelNumberOfPhotosToLike.Name = "labelNumberOfPhotosToLike";
+            this.labelNumberOfPhotosToLike.Size = new System.Drawing.Size(32, 32);
+            this.labelNumberOfPhotosToLike.TabIndex = 12;
+            this.labelNumberOfPhotosToLike.Text = "0";
+            // 
             // AlbumScannerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(1882, 972);
+            this.Controls.Add(this.labelNumberOfPhotosToLike);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonResetFilter);
-            this.Controls.Add(this.buttonLikeAllPhotos);
+            this.Controls.Add(this.buttonLikeSelectedPhotos);
             this.Controls.Add(this.buttonTagFilter);
             this.Controls.Add(this.checkedListBoxTaggedFriends);
             this.Controls.Add(this.listViewAlbumPhotos);
@@ -197,9 +224,11 @@
         private System.Windows.Forms.ListView listViewAlbumPhotos;
         private System.Windows.Forms.CheckedListBox checkedListBoxTaggedFriends;
         private System.Windows.Forms.Button buttonTagFilter;
-        private System.Windows.Forms.Button buttonLikeAllPhotos;
+        private System.Windows.Forms.Button buttonLikeSelectedPhotos;
         private System.Windows.Forms.Button buttonResetFilter;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelNumberOfPhotosToLike;
     }
 }

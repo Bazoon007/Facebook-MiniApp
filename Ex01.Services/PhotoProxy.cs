@@ -1,8 +1,6 @@
-﻿using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using FacebookWrapper.ObjectModel;
 
 namespace Ex01.Services
 {
@@ -17,10 +15,12 @@ namespace Ex01.Services
 
         public IList<IPhotoComponent> GetChildren()
         {
-            List<IPhotoComponent> list = new List<IPhotoComponent>
+            List<IPhotoComponent> list = new List<IPhotoComponent>();
+            if (Photo != null)
             {
-                this
-            };
+                list.Add(this);
+            }
+
             return list;
         }
 
@@ -33,6 +33,7 @@ namespace Ex01.Services
                 Photo.Like();
                 likeSuccessful = v_LikeSuccessful;
             }
+
             return likeSuccessful;
         }
 
@@ -51,14 +52,10 @@ namespace Ex01.Services
                 {
                     likedByMe = v_LikedByMe;
                     break;
-
                 }
             }
+
             return likedByMe;
         }
-
     }
 }
-
-
-

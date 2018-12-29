@@ -4,10 +4,9 @@ using FacebookWrapper.ObjectModel;
 
 namespace Ex01.Services
 {
-    public class AlbumScanner
+    public class AlbumScanner : FacebookFeature
     {
         private readonly FacebookObjectCollection<Album> r_Albums;
-        private readonly string r_UserId;
 
         public Album ScannedAlbum { get; set; }
 
@@ -19,27 +18,26 @@ namespace Ex01.Services
             }
         }
 
-        public AlbumScanner(UserFacade i_User)
+        public AlbumScanner(UserFacade i_User) : base(i_User)
         {
             r_Albums = i_User.Albums;
-            r_UserId = i_User.Id;
         }
 
-        public IList<Image> FetchPhotosByFilter(bool i_Filter, IList<string> i_TaggedPersonList)
+        public IList<PhotoProxy> FetchPhotosByFilter(bool i_Filter, IList<string> i_TaggedPersonList)
         {
-            IList<Image> imageList = new List<Image>();
+            IList<PhotoProxy> photoList = new List<PhotoProxy>();
             if (ScannedAlbum.Photos != null)
             {
                 foreach (Photo photo in ScannedAlbum.Photos)
                 {
                     if (!i_Filter || checkPhotoForTagFilter(photo, i_TaggedPersonList))
                     {
-                        imageList.Add(photo.ImageNormal);
+                        photoList.Add(new PhotoProxy { Photo = photo });
                     }
                 }
             }
 
-            return imageList;
+            return photoList;
         }
 
         public IList<string> FetchTaggedPersonList(bool i_Filter)
@@ -91,19 +89,19 @@ namespace Ex01.Services
             return tagFound;
         }
 
-        public bool LikeAllPhotos()
+        public bool LikeAllPhotos(IList<IPhotoComponent> i_SelectedPhotosList)
         {
             const bool v_LikeSuccessful = true;
-            foreach (Photo photo in ScannedAlbum.Photos)
+            bool likeSuccessful = v_LikeSuccessful;
+            foreach (IPhotoComponent photo in i_SelectedPhotosList)
             {
-                PhotoProxy photoProxy = new PhotoProxy() { Photo = photo };
-                if (!photoProxy.photoLikedByMe(r_UserId))
+                if (!photo.Like(UserId))
                 {
-                    photo.Like();
+                    likeSuccessful = !v_LikeSuccessful;
                 }
             }
 
-            return v_LikeSuccessful;
+            return likeSuccessful;
         }
     }   
 }

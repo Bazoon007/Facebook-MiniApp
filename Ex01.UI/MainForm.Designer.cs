@@ -29,36 +29,97 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label birthdayLabel;
+            System.Windows.Forms.Label emailLabel;
+            System.Windows.Forms.Label friendsCountLabel;
+            System.Windows.Forms.Label genderLabel;
+            System.Windows.Forms.Label hometownLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.labelWelcome = new System.Windows.Forms.Label();
             this.buttonBlastFromThePast = new System.Windows.Forms.Button();
             this.buttonLogout = new System.Windows.Forms.Button();
             this.pictureBoxProfilePicture = new System.Windows.Forms.PictureBox();
             this.buttonAlbumScanner = new System.Windows.Forms.Button();
-            this.groupBoxDetails = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.labelBirthday = new System.Windows.Forms.Label();
-            this.labelGender = new System.Windows.Forms.Label();
-            this.labelHometown = new System.Windows.Forms.Label();
-            this.labelEmail = new System.Windows.Forms.Label();
-            this.labelNoOfFriends = new System.Windows.Forms.Label();
             this.checkBoxRememberMe = new System.Windows.Forms.CheckBox();
+            this.userFacadeBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.userFacadeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.userFacadeBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.birthdayLabel1 = new System.Windows.Forms.Label();
+            this.emailLabel1 = new System.Windows.Forms.Label();
+            this.friendsCountLabel1 = new System.Windows.Forms.Label();
+            this.genderLabel1 = new System.Windows.Forms.Label();
+            this.hometownLabel1 = new System.Windows.Forms.Label();
+            this.groupBoxDetails = new System.Windows.Forms.GroupBox();
+            this.firstNameLabel = new System.Windows.Forms.Label();
+            this.lastNameLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            birthdayLabel = new System.Windows.Forms.Label();
+            emailLabel = new System.Windows.Forms.Label();
+            friendsCountLabel = new System.Windows.Forms.Label();
+            genderLabel = new System.Windows.Forms.Label();
+            hometownLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfilePicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userFacadeBindingNavigator)).BeginInit();
+            this.userFacadeBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userFacadeBindingSource)).BeginInit();
             this.groupBoxDetails.SuspendLayout();
             this.SuspendLayout();
             // 
-            // labelWelcome
+            // birthdayLabel
             // 
-            this.labelWelcome.AutoSize = true;
-            this.labelWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelWelcome.Location = new System.Drawing.Point(209, 106);
-            this.labelWelcome.Name = "labelWelcome";
-            this.labelWelcome.Size = new System.Drawing.Size(0, 37);
-            this.labelWelcome.TabIndex = 1;
+            birthdayLabel.AutoSize = true;
+            birthdayLabel.Location = new System.Drawing.Point(48, 60);
+            birthdayLabel.Name = "birthdayLabel";
+            birthdayLabel.Size = new System.Drawing.Size(128, 32);
+            birthdayLabel.TabIndex = 8;
+            birthdayLabel.Text = "Birthday:";
+            // 
+            // emailLabel
+            // 
+            emailLabel.AutoSize = true;
+            emailLabel.Location = new System.Drawing.Point(50, 92);
+            emailLabel.Name = "emailLabel";
+            emailLabel.Size = new System.Drawing.Size(95, 32);
+            emailLabel.TabIndex = 10;
+            emailLabel.Text = "Email:";
+            // 
+            // friendsCountLabel
+            // 
+            friendsCountLabel.AutoSize = true;
+            friendsCountLabel.Location = new System.Drawing.Point(48, 127);
+            friendsCountLabel.Name = "friendsCountLabel";
+            friendsCountLabel.Size = new System.Drawing.Size(201, 32);
+            friendsCountLabel.TabIndex = 12;
+            friendsCountLabel.Text = "Friends Count:";
+            // 
+            // genderLabel
+            // 
+            genderLabel.AutoSize = true;
+            genderLabel.Location = new System.Drawing.Point(48, 159);
+            genderLabel.Name = "genderLabel";
+            genderLabel.Size = new System.Drawing.Size(118, 32);
+            genderLabel.TabIndex = 14;
+            genderLabel.Text = "Gender:";
+            // 
+            // hometownLabel
+            // 
+            hometownLabel.AutoSize = true;
+            hometownLabel.Location = new System.Drawing.Point(50, 194);
+            hometownLabel.Name = "hometownLabel";
+            hometownLabel.Size = new System.Drawing.Size(158, 32);
+            hometownLabel.TabIndex = 16;
+            hometownLabel.Text = "Hometown:";
             // 
             // buttonBlastFromThePast
             // 
@@ -102,122 +163,6 @@
             this.buttonAlbumScanner.UseVisualStyleBackColor = true;
             this.buttonAlbumScanner.Click += new System.EventHandler(this.buttonAlbumScanner_Click);
             // 
-            // groupBoxDetails
-            // 
-            this.groupBoxDetails.Controls.Add(this.labelNoOfFriends);
-            this.groupBoxDetails.Controls.Add(this.labelEmail);
-            this.groupBoxDetails.Controls.Add(this.labelHometown);
-            this.groupBoxDetails.Controls.Add(this.labelGender);
-            this.groupBoxDetails.Controls.Add(this.labelBirthday);
-            this.groupBoxDetails.Controls.Add(this.label6);
-            this.groupBoxDetails.Controls.Add(this.label5);
-            this.groupBoxDetails.Controls.Add(this.label4);
-            this.groupBoxDetails.Controls.Add(this.label3);
-            this.groupBoxDetails.Controls.Add(this.label2);
-            this.groupBoxDetails.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.groupBoxDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.groupBoxDetails.Location = new System.Drawing.Point(213, 389);
-            this.groupBoxDetails.Name = "groupBoxDetails";
-            this.groupBoxDetails.Size = new System.Drawing.Size(404, 286);
-            this.groupBoxDetails.TabIndex = 6;
-            this.groupBoxDetails.TabStop = false;
-            this.groupBoxDetails.Text = "Details";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label2.Location = new System.Drawing.Point(32, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(136, 32);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Birthday -";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label3.Location = new System.Drawing.Point(32, 86);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 32);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Gender -";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label4.Location = new System.Drawing.Point(32, 123);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(166, 32);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Hometown -";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label5.Location = new System.Drawing.Point(32, 162);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(103, 32);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Email -";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label6.Location = new System.Drawing.Point(32, 202);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(183, 32);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "No. of friends";
-            // 
-            // labelBirthday
-            // 
-            this.labelBirthday.AutoSize = true;
-            this.labelBirthday.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelBirthday.Location = new System.Drawing.Point(156, 48);
-            this.labelBirthday.Name = "labelBirthday";
-            this.labelBirthday.Size = new System.Drawing.Size(0, 32);
-            this.labelBirthday.TabIndex = 5;
-            // 
-            // labelGender
-            // 
-            this.labelGender.AutoSize = true;
-            this.labelGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelGender.Location = new System.Drawing.Point(156, 86);
-            this.labelGender.Name = "labelGender";
-            this.labelGender.Size = new System.Drawing.Size(0, 32);
-            this.labelGender.TabIndex = 6;
-            // 
-            // labelHometown
-            // 
-            this.labelHometown.AutoSize = true;
-            this.labelHometown.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelHometown.Location = new System.Drawing.Point(156, 123);
-            this.labelHometown.Name = "labelHometown";
-            this.labelHometown.Size = new System.Drawing.Size(0, 32);
-            this.labelHometown.TabIndex = 7;
-            // 
-            // labelEmail
-            // 
-            this.labelEmail.AutoSize = true;
-            this.labelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelEmail.Location = new System.Drawing.Point(156, 162);
-            this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(0, 32);
-            this.labelEmail.TabIndex = 8;
-            // 
-            // labelNoOfFriends
-            // 
-            this.labelNoOfFriends.AutoSize = true;
-            this.labelNoOfFriends.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelNoOfFriends.Location = new System.Drawing.Point(156, 202);
-            this.labelNoOfFriends.Name = "labelNoOfFriends";
-            this.labelNoOfFriends.Size = new System.Drawing.Size(0, 32);
-            this.labelNoOfFriends.TabIndex = 9;
-            // 
             // checkBoxRememberMe
             // 
             this.checkBoxRememberMe.AutoSize = true;
@@ -229,20 +174,252 @@
             this.checkBoxRememberMe.Text = "Remember me?";
             this.checkBoxRememberMe.UseVisualStyleBackColor = true;
             // 
+            // userFacadeBindingNavigator
+            // 
+            this.userFacadeBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.userFacadeBindingNavigator.BindingSource = this.userFacadeBindingSource;
+            this.userFacadeBindingNavigator.CountItem = this.bindingNavigatorCountItem;
+            this.userFacadeBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.userFacadeBindingNavigator.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.userFacadeBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorMoveFirstItem,
+            this.bindingNavigatorMovePreviousItem,
+            this.bindingNavigatorSeparator,
+            this.bindingNavigatorPositionItem,
+            this.bindingNavigatorCountItem,
+            this.bindingNavigatorSeparator1,
+            this.bindingNavigatorMoveNextItem,
+            this.bindingNavigatorMoveLastItem,
+            this.bindingNavigatorSeparator2,
+            this.bindingNavigatorAddNewItem,
+            this.bindingNavigatorDeleteItem,
+            this.userFacadeBindingNavigatorSaveItem});
+            this.userFacadeBindingNavigator.Location = new System.Drawing.Point(0, 0);
+            this.userFacadeBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.userFacadeBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.userFacadeBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.userFacadeBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.userFacadeBindingNavigator.Name = "userFacadeBindingNavigator";
+            this.userFacadeBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+            this.userFacadeBindingNavigator.Size = new System.Drawing.Size(2014, 31);
+            this.userFacadeBindingNavigator.TabIndex = 8;
+            this.userFacadeBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(28, 28);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // userFacadeBindingSource
+            // 
+            this.userFacadeBindingSource.DataSource = typeof(Ex01.Services.UserFacade);
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(54, 28);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(28, 28);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
+            // 
+            // bindingNavigatorMoveFirstItem
+            // 
+            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(28, 28);
+            this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(28, 28);
+            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            // 
+            // bindingNavigatorSeparator
+            // 
+            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "Position";
+            this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 31);
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
+            // 
+            // bindingNavigatorSeparator1
+            // 
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
+            // 
+            // bindingNavigatorMoveNextItem
+            // 
+            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(28, 28);
+            this.bindingNavigatorMoveNextItem.Text = "Move next";
+            // 
+            // bindingNavigatorMoveLastItem
+            // 
+            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(28, 28);
+            this.bindingNavigatorMoveLastItem.Text = "Move last";
+            // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
+            // 
+            // userFacadeBindingNavigatorSaveItem
+            // 
+            this.userFacadeBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.userFacadeBindingNavigatorSaveItem.Enabled = false;
+            this.userFacadeBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("userFacadeBindingNavigatorSaveItem.Image")));
+            this.userFacadeBindingNavigatorSaveItem.Name = "userFacadeBindingNavigatorSaveItem";
+            this.userFacadeBindingNavigatorSaveItem.Size = new System.Drawing.Size(28, 28);
+            this.userFacadeBindingNavigatorSaveItem.Text = "Save Data";
+            // 
+            // birthdayLabel1
+            // 
+            this.birthdayLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userFacadeBindingSource, "Birthday", true));
+            this.birthdayLabel1.Location = new System.Drawing.Point(247, 57);
+            this.birthdayLabel1.Name = "birthdayLabel1";
+            this.birthdayLabel1.Size = new System.Drawing.Size(100, 32);
+            this.birthdayLabel1.TabIndex = 9;
+            this.birthdayLabel1.Text = "label7";
+            // 
+            // emailLabel1
+            // 
+            this.emailLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userFacadeBindingSource, "Email", true));
+            this.emailLabel1.Location = new System.Drawing.Point(247, 89);
+            this.emailLabel1.Name = "emailLabel1";
+            this.emailLabel1.Size = new System.Drawing.Size(216, 35);
+            this.emailLabel1.TabIndex = 11;
+            this.emailLabel1.Text = "label7";
+            // 
+            // friendsCountLabel1
+            // 
+            this.friendsCountLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userFacadeBindingSource, "FriendsCount", true));
+            this.friendsCountLabel1.Location = new System.Drawing.Point(247, 127);
+            this.friendsCountLabel1.Name = "friendsCountLabel1";
+            this.friendsCountLabel1.Size = new System.Drawing.Size(110, 32);
+            this.friendsCountLabel1.TabIndex = 13;
+            this.friendsCountLabel1.Text = "label7";
+            // 
+            // genderLabel1
+            // 
+            this.genderLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userFacadeBindingSource, "Gender", true));
+            this.genderLabel1.Location = new System.Drawing.Point(247, 159);
+            this.genderLabel1.Name = "genderLabel1";
+            this.genderLabel1.Size = new System.Drawing.Size(100, 32);
+            this.genderLabel1.TabIndex = 15;
+            this.genderLabel1.Text = "label7";
+            // 
+            // hometownLabel1
+            // 
+            this.hometownLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userFacadeBindingSource, "Hometown", true));
+            this.hometownLabel1.Location = new System.Drawing.Point(247, 194);
+            this.hometownLabel1.Name = "hometownLabel1";
+            this.hometownLabel1.Size = new System.Drawing.Size(106, 32);
+            this.hometownLabel1.TabIndex = 17;
+            this.hometownLabel1.Text = "label7";
+            // 
+            // groupBoxDetails
+            // 
+            this.groupBoxDetails.Controls.Add(birthdayLabel);
+            this.groupBoxDetails.Controls.Add(friendsCountLabel);
+            this.groupBoxDetails.Controls.Add(this.birthdayLabel1);
+            this.groupBoxDetails.Controls.Add(this.hometownLabel1);
+            this.groupBoxDetails.Controls.Add(emailLabel);
+            this.groupBoxDetails.Controls.Add(hometownLabel);
+            this.groupBoxDetails.Controls.Add(this.emailLabel1);
+            this.groupBoxDetails.Controls.Add(this.genderLabel1);
+            this.groupBoxDetails.Controls.Add(genderLabel);
+            this.groupBoxDetails.Controls.Add(this.friendsCountLabel1);
+            this.groupBoxDetails.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.groupBoxDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.groupBoxDetails.Location = new System.Drawing.Point(213, 389);
+            this.groupBoxDetails.Name = "groupBoxDetails";
+            this.groupBoxDetails.Size = new System.Drawing.Size(659, 286);
+            this.groupBoxDetails.TabIndex = 6;
+            this.groupBoxDetails.TabStop = false;
+            this.groupBoxDetails.Text = "Details";
+            // 
+            // firstNameLabel
+            // 
+            this.firstNameLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userFacadeBindingSource, "FirstName", true));
+            this.firstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.firstNameLabel.Location = new System.Drawing.Point(351, 119);
+            this.firstNameLabel.Name = "firstNameLabel";
+            this.firstNameLabel.Size = new System.Drawing.Size(129, 45);
+            this.firstNameLabel.TabIndex = 9;
+            this.firstNameLabel.Text = "label2";
+            // 
+            // lastNameLabel
+            // 
+            this.lastNameLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userFacadeBindingSource, "LastName", true));
+            this.lastNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.lastNameLabel.Location = new System.Drawing.Point(450, 119);
+            this.lastNameLabel.Name = "lastNameLabel";
+            this.lastNameLabel.Size = new System.Drawing.Size(129, 45);
+            this.lastNameLabel.TabIndex = 10;
+            this.lastNameLabel.Text = "label2";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label2.Location = new System.Drawing.Point(207, 119);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(149, 32);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Welcome,";
+            // 
             // MainForm
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(2014, 1027);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lastNameLabel);
+            this.Controls.Add(this.firstNameLabel);
+            this.Controls.Add(this.userFacadeBindingNavigator);
             this.Controls.Add(this.checkBoxRememberMe);
             this.Controls.Add(this.groupBoxDetails);
             this.Controls.Add(this.buttonBlastFromThePast);
             this.Controls.Add(this.buttonLogout);
             this.Controls.Add(this.pictureBoxProfilePicture);
-            this.Controls.Add(this.labelWelcome);
             this.Controls.Add(this.buttonAlbumScanner);
             this.Name = "MainForm";
             this.Text = "Facebook MiniApp";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfilePicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userFacadeBindingNavigator)).EndInit();
+            this.userFacadeBindingNavigator.ResumeLayout(false);
+            this.userFacadeBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userFacadeBindingSource)).EndInit();
             this.groupBoxDetails.ResumeLayout(false);
             this.groupBoxDetails.PerformLayout();
             this.ResumeLayout(false);
@@ -255,21 +432,32 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonAlbumScanner;
-        private System.Windows.Forms.Label labelWelcome;
         private System.Windows.Forms.PictureBox pictureBoxProfilePicture;
         private System.Windows.Forms.Button buttonLogout;
         private System.Windows.Forms.Button buttonBlastFromThePast;
-        private System.Windows.Forms.GroupBox groupBoxDetails;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label labelNoOfFriends;
-        private System.Windows.Forms.Label labelEmail;
-        private System.Windows.Forms.Label labelHometown;
-        private System.Windows.Forms.Label labelGender;
-        private System.Windows.Forms.Label labelBirthday;
         private System.Windows.Forms.CheckBox checkBoxRememberMe;
+        private System.Windows.Forms.BindingSource userFacadeBindingSource;
+        private System.Windows.Forms.BindingNavigator userFacadeBindingNavigator;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
+        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
+        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
+        private System.Windows.Forms.ToolStripButton userFacadeBindingNavigatorSaveItem;
+        private System.Windows.Forms.Label birthdayLabel1;
+        private System.Windows.Forms.Label emailLabel1;
+        private System.Windows.Forms.Label friendsCountLabel1;
+        private System.Windows.Forms.Label genderLabel1;
+        private System.Windows.Forms.Label hometownLabel1;
+        private System.Windows.Forms.GroupBox groupBoxDetails;
+        private System.Windows.Forms.Label firstNameLabel;
+        private System.Windows.Forms.Label lastNameLabel;
+        private System.Windows.Forms.Label label2;
     }
 }
