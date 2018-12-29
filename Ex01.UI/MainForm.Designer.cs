@@ -1,4 +1,4 @@
-﻿namespace Ex01.UI
+﻿namespace Ex02.UI
 {
     public partial class MainForm
     {
@@ -55,15 +55,15 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.userFacadeBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.groupBoxDetails = new System.Windows.Forms.GroupBox();
             this.birthdayLabel1 = new System.Windows.Forms.Label();
             this.emailLabel1 = new System.Windows.Forms.Label();
             this.friendsCountLabel1 = new System.Windows.Forms.Label();
             this.genderLabel1 = new System.Windows.Forms.Label();
             this.hometownLabel1 = new System.Windows.Forms.Label();
-            this.groupBoxDetails = new System.Windows.Forms.GroupBox();
-            this.firstNameLabel = new System.Windows.Forms.Label();
-            this.lastNameLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.firstNameLabel1 = new System.Windows.Forms.Label();
+            this.lastNameLabel1 = new System.Windows.Forms.Label();
             birthdayLabel = new System.Windows.Forms.Label();
             emailLabel = new System.Windows.Forms.Label();
             friendsCountLabel = new System.Windows.Forms.Label();
@@ -79,46 +79,46 @@
             // birthdayLabel
             // 
             birthdayLabel.AutoSize = true;
-            birthdayLabel.Location = new System.Drawing.Point(48, 60);
+            birthdayLabel.Location = new System.Drawing.Point(89, 71);
             birthdayLabel.Name = "birthdayLabel";
             birthdayLabel.Size = new System.Drawing.Size(128, 32);
-            birthdayLabel.TabIndex = 8;
+            birthdayLabel.TabIndex = 0;
             birthdayLabel.Text = "Birthday:";
             // 
             // emailLabel
             // 
             emailLabel.AutoSize = true;
-            emailLabel.Location = new System.Drawing.Point(50, 92);
+            emailLabel.Location = new System.Drawing.Point(89, 103);
             emailLabel.Name = "emailLabel";
             emailLabel.Size = new System.Drawing.Size(95, 32);
-            emailLabel.TabIndex = 10;
+            emailLabel.TabIndex = 2;
             emailLabel.Text = "Email:";
             // 
             // friendsCountLabel
             // 
             friendsCountLabel.AutoSize = true;
-            friendsCountLabel.Location = new System.Drawing.Point(48, 127);
+            friendsCountLabel.Location = new System.Drawing.Point(89, 135);
             friendsCountLabel.Name = "friendsCountLabel";
             friendsCountLabel.Size = new System.Drawing.Size(201, 32);
-            friendsCountLabel.TabIndex = 12;
+            friendsCountLabel.TabIndex = 4;
             friendsCountLabel.Text = "Friends Count:";
             // 
             // genderLabel
             // 
             genderLabel.AutoSize = true;
-            genderLabel.Location = new System.Drawing.Point(48, 159);
+            genderLabel.Location = new System.Drawing.Point(89, 167);
             genderLabel.Name = "genderLabel";
             genderLabel.Size = new System.Drawing.Size(118, 32);
-            genderLabel.TabIndex = 14;
+            genderLabel.TabIndex = 6;
             genderLabel.Text = "Gender:";
             // 
             // hometownLabel
             // 
             hometownLabel.AutoSize = true;
-            hometownLabel.Location = new System.Drawing.Point(50, 194);
+            hometownLabel.Location = new System.Drawing.Point(89, 199);
             hometownLabel.Name = "hometownLabel";
             hometownLabel.Size = new System.Drawing.Size(158, 32);
-            hometownLabel.TabIndex = 16;
+            hometownLabel.TabIndex = 8;
             hometownLabel.Text = "Hometown:";
             // 
             // buttonBlastFromThePast
@@ -133,7 +133,7 @@
             // 
             // buttonLogout
             // 
-            this.buttonLogout.Image = global::Ex01.UI.Properties.Resources.Logout;
+            this.buttonLogout.Image = global::Ex02.UI.Properties.Resources.Logout;
             this.buttonLogout.Location = new System.Drawing.Point(612, 836);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(738, 124);
@@ -153,7 +153,7 @@
             // 
             this.buttonAlbumScanner.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.buttonAlbumScanner.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.buttonAlbumScanner.Image = global::Ex01.UI.Properties.Resources.AlbumScanner;
+            this.buttonAlbumScanner.Image = global::Ex02.UI.Properties.Resources.AlbumScanner;
             this.buttonAlbumScanner.Location = new System.Drawing.Point(1382, 167);
             this.buttonAlbumScanner.Name = "buttonAlbumScanner";
             this.buttonAlbumScanner.Size = new System.Drawing.Size(401, 253);
@@ -216,7 +216,7 @@
             // 
             // userFacadeBindingSource
             // 
-            this.userFacadeBindingSource.DataSource = typeof(Ex01.Services.UserFacade);
+            this.userFacadeBindingSource.DataSource = typeof(Ex02.Services.UserFacade);
             // 
             // bindingNavigatorCountItem
             // 
@@ -303,91 +303,71 @@
             this.userFacadeBindingNavigatorSaveItem.Size = new System.Drawing.Size(28, 28);
             this.userFacadeBindingNavigatorSaveItem.Text = "Save Data";
             // 
-            // birthdayLabel1
-            // 
-            this.birthdayLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userFacadeBindingSource, "Birthday", true));
-            this.birthdayLabel1.Location = new System.Drawing.Point(247, 57);
-            this.birthdayLabel1.Name = "birthdayLabel1";
-            this.birthdayLabel1.Size = new System.Drawing.Size(100, 32);
-            this.birthdayLabel1.TabIndex = 9;
-            this.birthdayLabel1.Text = "label7";
-            // 
-            // emailLabel1
-            // 
-            this.emailLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userFacadeBindingSource, "Email", true));
-            this.emailLabel1.Location = new System.Drawing.Point(247, 89);
-            this.emailLabel1.Name = "emailLabel1";
-            this.emailLabel1.Size = new System.Drawing.Size(216, 35);
-            this.emailLabel1.TabIndex = 11;
-            this.emailLabel1.Text = "label7";
-            // 
-            // friendsCountLabel1
-            // 
-            this.friendsCountLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userFacadeBindingSource, "FriendsCount", true));
-            this.friendsCountLabel1.Location = new System.Drawing.Point(247, 127);
-            this.friendsCountLabel1.Name = "friendsCountLabel1";
-            this.friendsCountLabel1.Size = new System.Drawing.Size(110, 32);
-            this.friendsCountLabel1.TabIndex = 13;
-            this.friendsCountLabel1.Text = "label7";
-            // 
-            // genderLabel1
-            // 
-            this.genderLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userFacadeBindingSource, "Gender", true));
-            this.genderLabel1.Location = new System.Drawing.Point(247, 159);
-            this.genderLabel1.Name = "genderLabel1";
-            this.genderLabel1.Size = new System.Drawing.Size(100, 32);
-            this.genderLabel1.TabIndex = 15;
-            this.genderLabel1.Text = "label7";
-            // 
-            // hometownLabel1
-            // 
-            this.hometownLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userFacadeBindingSource, "Hometown", true));
-            this.hometownLabel1.Location = new System.Drawing.Point(247, 194);
-            this.hometownLabel1.Name = "hometownLabel1";
-            this.hometownLabel1.Size = new System.Drawing.Size(106, 32);
-            this.hometownLabel1.TabIndex = 17;
-            this.hometownLabel1.Text = "label7";
-            // 
             // groupBoxDetails
             // 
             this.groupBoxDetails.Controls.Add(birthdayLabel);
-            this.groupBoxDetails.Controls.Add(friendsCountLabel);
             this.groupBoxDetails.Controls.Add(this.birthdayLabel1);
-            this.groupBoxDetails.Controls.Add(this.hometownLabel1);
             this.groupBoxDetails.Controls.Add(emailLabel);
-            this.groupBoxDetails.Controls.Add(hometownLabel);
             this.groupBoxDetails.Controls.Add(this.emailLabel1);
-            this.groupBoxDetails.Controls.Add(this.genderLabel1);
-            this.groupBoxDetails.Controls.Add(genderLabel);
+            this.groupBoxDetails.Controls.Add(friendsCountLabel);
             this.groupBoxDetails.Controls.Add(this.friendsCountLabel1);
+            this.groupBoxDetails.Controls.Add(genderLabel);
+            this.groupBoxDetails.Controls.Add(this.genderLabel1);
+            this.groupBoxDetails.Controls.Add(hometownLabel);
+            this.groupBoxDetails.Controls.Add(this.hometownLabel1);
             this.groupBoxDetails.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBoxDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.groupBoxDetails.Location = new System.Drawing.Point(213, 389);
             this.groupBoxDetails.Name = "groupBoxDetails";
-            this.groupBoxDetails.Size = new System.Drawing.Size(659, 286);
+            this.groupBoxDetails.Size = new System.Drawing.Size(659, 312);
             this.groupBoxDetails.TabIndex = 6;
             this.groupBoxDetails.TabStop = false;
             this.groupBoxDetails.Text = "Details";
             // 
-            // firstNameLabel
+            // birthdayLabel1
             // 
-            this.firstNameLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userFacadeBindingSource, "FirstName", true));
-            this.firstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.firstNameLabel.Location = new System.Drawing.Point(351, 119);
-            this.firstNameLabel.Name = "firstNameLabel";
-            this.firstNameLabel.Size = new System.Drawing.Size(129, 45);
-            this.firstNameLabel.TabIndex = 9;
-            this.firstNameLabel.Text = "label2";
+            this.birthdayLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userFacadeBindingSource, "Birthday", true));
+            this.birthdayLabel1.Location = new System.Drawing.Point(296, 71);
+            this.birthdayLabel1.Name = "birthdayLabel1";
+            this.birthdayLabel1.Size = new System.Drawing.Size(158, 32);
+            this.birthdayLabel1.TabIndex = 1;
+            this.birthdayLabel1.Text = "label3";
             // 
-            // lastNameLabel
+            // emailLabel1
             // 
-            this.lastNameLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userFacadeBindingSource, "LastName", true));
-            this.lastNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.lastNameLabel.Location = new System.Drawing.Point(450, 119);
-            this.lastNameLabel.Name = "lastNameLabel";
-            this.lastNameLabel.Size = new System.Drawing.Size(129, 45);
-            this.lastNameLabel.TabIndex = 10;
-            this.lastNameLabel.Text = "label2";
+            this.emailLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userFacadeBindingSource, "Email", true));
+            this.emailLabel1.Location = new System.Drawing.Point(296, 103);
+            this.emailLabel1.Name = "emailLabel1";
+            this.emailLabel1.Size = new System.Drawing.Size(290, 32);
+            this.emailLabel1.TabIndex = 3;
+            this.emailLabel1.Text = "label3";
+            // 
+            // friendsCountLabel1
+            // 
+            this.friendsCountLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userFacadeBindingSource, "FriendsCount", true));
+            this.friendsCountLabel1.Location = new System.Drawing.Point(296, 135);
+            this.friendsCountLabel1.Name = "friendsCountLabel1";
+            this.friendsCountLabel1.Size = new System.Drawing.Size(158, 32);
+            this.friendsCountLabel1.TabIndex = 5;
+            this.friendsCountLabel1.Text = "label3";
+            // 
+            // genderLabel1
+            // 
+            this.genderLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userFacadeBindingSource, "Gender", true));
+            this.genderLabel1.Location = new System.Drawing.Point(296, 167);
+            this.genderLabel1.Name = "genderLabel1";
+            this.genderLabel1.Size = new System.Drawing.Size(158, 32);
+            this.genderLabel1.TabIndex = 7;
+            this.genderLabel1.Text = "label3";
+            // 
+            // hometownLabel1
+            // 
+            this.hometownLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userFacadeBindingSource, "Hometown", true));
+            this.hometownLabel1.Location = new System.Drawing.Point(296, 199);
+            this.hometownLabel1.Name = "hometownLabel1";
+            this.hometownLabel1.Size = new System.Drawing.Size(158, 32);
+            this.hometownLabel1.TabIndex = 9;
+            this.hometownLabel1.Text = "label3";
             // 
             // label2
             // 
@@ -399,13 +379,33 @@
             this.label2.TabIndex = 11;
             this.label2.Text = "Welcome,";
             // 
+            // firstNameLabel1
+            // 
+            this.firstNameLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userFacadeBindingSource, "FirstName", true));
+            this.firstNameLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.firstNameLabel1.Location = new System.Drawing.Point(359, 119);
+            this.firstNameLabel1.Name = "firstNameLabel1";
+            this.firstNameLabel1.Size = new System.Drawing.Size(100, 36);
+            this.firstNameLabel1.TabIndex = 12;
+            this.firstNameLabel1.Text = "label3";
+            // 
+            // lastNameLabel1
+            // 
+            this.lastNameLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userFacadeBindingSource, "LastName", true));
+            this.lastNameLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.lastNameLabel1.Location = new System.Drawing.Point(465, 119);
+            this.lastNameLabel1.Name = "lastNameLabel1";
+            this.lastNameLabel1.Size = new System.Drawing.Size(100, 36);
+            this.lastNameLabel1.TabIndex = 13;
+            this.lastNameLabel1.Text = "label3";
+            // 
             // MainForm
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(2014, 1027);
+            this.Controls.Add(this.lastNameLabel1);
+            this.Controls.Add(this.firstNameLabel1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.lastNameLabel);
-            this.Controls.Add(this.firstNameLabel);
             this.Controls.Add(this.userFacadeBindingNavigator);
             this.Controls.Add(this.checkBoxRememberMe);
             this.Controls.Add(this.groupBoxDetails);
@@ -450,14 +450,14 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton userFacadeBindingNavigatorSaveItem;
+        private System.Windows.Forms.GroupBox groupBoxDetails;
         private System.Windows.Forms.Label birthdayLabel1;
         private System.Windows.Forms.Label emailLabel1;
         private System.Windows.Forms.Label friendsCountLabel1;
         private System.Windows.Forms.Label genderLabel1;
         private System.Windows.Forms.Label hometownLabel1;
-        private System.Windows.Forms.GroupBox groupBoxDetails;
-        private System.Windows.Forms.Label firstNameLabel;
-        private System.Windows.Forms.Label lastNameLabel;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label firstNameLabel1;
+        private System.Windows.Forms.Label lastNameLabel1;
     }
 }

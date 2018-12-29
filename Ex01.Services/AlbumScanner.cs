@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Drawing;
 using FacebookWrapper.ObjectModel;
 
-namespace Ex01.Services
+namespace Ex02.Services
 {
     public class AlbumScanner : FacebookFeature
     {

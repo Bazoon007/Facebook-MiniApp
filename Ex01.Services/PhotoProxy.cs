@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using FacebookWrapper.ObjectModel;
 
-namespace Ex01.Services
+namespace Ex02.Services
 {
     public class PhotoProxy : IPhotoComponent
     {

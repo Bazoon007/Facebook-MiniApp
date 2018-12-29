@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Xml.Serialization;
 
-namespace Ex01.Services
+namespace Ex02.Services
 {
     public class AppSettings
     {

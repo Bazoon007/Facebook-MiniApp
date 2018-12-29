@@ -4,9 +4,9 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Threading;
 using FacebookWrapper.ObjectModel;
-using Ex01.Services;
+using Ex02.Services;
 
-namespace Ex01.UI
+namespace Ex02.UI
 {
     public partial class BlastFromThePastForm : Form, IFeatureFrom
     {

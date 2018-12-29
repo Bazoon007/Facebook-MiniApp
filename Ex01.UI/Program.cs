@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Ex01.UI
+namespace Ex02.UI
 {
     public static class Program
     {

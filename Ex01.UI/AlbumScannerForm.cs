@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
-using Ex01.Services;
+using Ex02.Services;
 using FacebookWrapper.ObjectModel;
 
-namespace Ex01.UI
+namespace Ex02.UI
 {
     public partial class AlbumScannerForm : Form, IFeatureFrom
     {
@@ -62,7 +62,6 @@ namespace Ex01.UI
                 for (int i = 0; i < imageListAlbumPhoto.Images.Count; i++)
                 {
                     ListViewItem item = new ListViewItem();
-                    item.Text = photoList[i].Photo.Name;
                     item.Tag = photoList[i];
                     item.ImageIndex = i;
                     listViewAlbumPhotos.Invoke(new Action(() => listViewAlbumPhotos.Items.Add(item)));              
@@ -102,13 +101,11 @@ namespace Ex01.UI
                 checkedListBoxTaggedFriends.SetItemChecked(i, false);
             }
 
-            r_AlbumScanner.ScannedAlbum = listBoxAlbumList.SelectedItem as Album;
             new Thread(() => showAlbumPhotosByFilter(false, true)).Start();
         }
 
         private void buttonTagFilter_Click(object sender, EventArgs e)
         {
-            r_AlbumScanner.ScannedAlbum = listBoxAlbumList.SelectedItem as Album;
             new Thread(() => showAlbumPhotosByFilter(true, false)).Start();
         }
 

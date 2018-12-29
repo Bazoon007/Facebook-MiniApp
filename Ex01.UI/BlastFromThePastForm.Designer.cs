@@ -1,4 +1,4 @@
-﻿namespace Ex01.UI
+﻿namespace Ex02.UI
 {
     public partial class BlastFromThePastForm
     {

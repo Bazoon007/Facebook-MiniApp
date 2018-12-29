@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FacebookWrapper.ObjectModel;
 
-namespace Ex01.Services
+namespace Ex02.Services
 {
     public class BlastFromThePast : FacebookFeature
     {

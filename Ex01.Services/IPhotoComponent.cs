@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace Ex01.Services
+namespace Ex02.Services
 {
     public interface IPhotoComponent
     {

@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Threading;
 using System.Windows.Forms;
-using Ex01.Services;
+using Ex02.Services;
 using FacebookWrapper;
-using FacebookWrapper.ObjectModel;
 
-namespace Ex01.UI
+namespace Ex02.UI
 {
     public partial class LoginForm : Form
     {

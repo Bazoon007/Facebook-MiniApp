@@ -1,6 +1,6 @@
 ﻿using FacebookWrapper;
 
-namespace Ex01.Services
+namespace Ex02.Services
 {
     public static class Login
     {

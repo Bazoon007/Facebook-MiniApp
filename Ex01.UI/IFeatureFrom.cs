@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Ex01.Services;
+﻿using Ex02.Services;
 
-namespace Ex01.UI
+namespace Ex02.UI
 {
     internal interface IFeatureFrom
     {

@@ -1,4 +1,4 @@
-﻿namespace Ex01.Services
+﻿namespace Ex02.Services
 {
     public abstract class FacebookFeature
     {
