@@ -116,7 +116,7 @@
     <None Include="Resources\Login.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ex01.Services\Ex02.Services.csproj">
+    <ProjectReference Include="..\Ex02.Services\Ex02.Services.csproj">
       <Project>{a4fbe1b5-b2ae-40c5-88e8-0ca2f6caf00a}</Project>
       <Name>Ex02.Services</Name>
     </ProjectReference>
