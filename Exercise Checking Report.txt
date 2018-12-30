@@ -1,10 +1,13 @@
 ==========================Exercise Checking Report==========================
-Exercise No...........: 1
+Exercise No...........: 2
 First Student Details.: 305469553 - Amir Padan
 Second Student Details: 307845644 - Ohad Yehezkel
-Delivery Date.........: 23 - Nov - 2018
-Delivered In Delay....: 10 Hours
-Delay Reason..........: No Special Reason
+Delivery Date.........: 30 - Dec - 2018
+Delivered In Delay....: 6 Days 9.5 Hours
+Delay Reason..........: One computer malfunctioned - data got lost. Other 
+						obligations and assignments pressure from other courses.
+						We are aware that we deilver this assignment way too late,
+						And aware on the grade deduction. We apologize.
 Visual Studio Version.: 2017
 Comments..............: 
 ========================End Exercise Checking Report========================
