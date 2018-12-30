@@ -4,8 +4,6 @@ namespace Ex02.Services
 {
     public class UserFacade
     {
-        public AppSettings AppSetting { get; set; }
-
         private readonly FacebookObjectCollection<Post> r_Posts;
         private readonly FacebookObjectCollection<Album> r_Albums;
         private readonly string r_Id;
