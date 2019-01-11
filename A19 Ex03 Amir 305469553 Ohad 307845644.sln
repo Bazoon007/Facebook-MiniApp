@@ -3,15 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex02.UI", "Ex02.UI\Ex02.UI.csproj", "{62255FE2-C9C3-4AA3-91A0-E90CF04BFEEE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex03.UI", "Ex03.UI\Ex03.UI.csproj", "{62255FE2-C9C3-4AA3-91A0-E90CF04BFEEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex02.Services", "Ex02.Services\Ex02.Services.csproj", "{A4FBE1B5-B2AE-40C5-88E8-0CA2F6CAF00A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex03.Services", "Ex03.Services\Ex03.Services.csproj", "{A4FBE1B5-B2AE-40C5-88E8-0CA2F6CAF00A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D340E414-59F3-48F9-8561-C9336FE3BB2A}"
-	ProjectSection(SolutionItems) = preProject
-		..\A19 Ex02 Amir 305469553 Ohad 307845644.docx = ..\A19 Ex02 Amir 305469553 Ohad 307845644.docx
-		Exercise Checking Report.txt = Exercise Checking Report.txt
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

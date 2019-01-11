@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{62255FE2-C9C3-4AA3-91A0-E90CF04BFEEE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Ex02.UI</RootNamespace>
-    <AssemblyName>Ex02.UI</AssemblyName>
+    <RootNamespace>Ex03.UI</RootNamespace>
+    <AssemblyName>Ex03.UI</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -96,7 +96,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Properties\DataSources\Ex02.Services.UserFacade.datasource" />
+    <None Include="Properties\DataSources\Ex03.Services.UserFacade.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -116,9 +116,9 @@
     <None Include="Resources\Login.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ex02.Services\Ex02.Services.csproj">
+    <ProjectReference Include="..\Ex03.Services\Ex03.Services.csproj">
       <Project>{a4fbe1b5-b2ae-40c5-88e8-0ca2f6caf00a}</Project>
-      <Name>Ex02.Services</Name>
+      <Name>Ex03.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

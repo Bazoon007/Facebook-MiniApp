@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A4FBE1B5-B2AE-40C5-88E8-0CA2F6CAF00A}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Ex02.Services</RootNamespace>
-    <AssemblyName>Ex02.Services</AssemblyName>
+    <RootNamespace>Ex03.Services</RootNamespace>
+    <AssemblyName>Ex03.Services</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

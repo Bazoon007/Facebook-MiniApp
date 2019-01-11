@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
-using Ex02.Services;
+using Ex03.Services;
 using FacebookWrapper.ObjectModel;
 
-namespace Ex02.UI
+namespace Ex03.UI
 {
     public partial class AlbumScannerForm : Form, IFeatureFrom
     {

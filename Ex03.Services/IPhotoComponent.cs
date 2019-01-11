@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Ex02.Services
+namespace Ex03.Services
 {
     public interface IPhotoComponent
     {

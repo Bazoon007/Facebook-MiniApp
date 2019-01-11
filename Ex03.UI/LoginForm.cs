@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
-using Ex02.Services;
+using Ex03.Services;
 using FacebookWrapper;
 
-namespace Ex02.UI
+namespace Ex03.UI
 {
     public partial class LoginForm : Form
     {

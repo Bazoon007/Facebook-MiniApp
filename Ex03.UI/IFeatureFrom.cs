@@ -1,6 +1,6 @@
-﻿using Ex02.Services;
+﻿using Ex03.Services;
 
-namespace Ex02.UI
+namespace Ex03.UI
 {
     internal interface IFeatureFrom
     {

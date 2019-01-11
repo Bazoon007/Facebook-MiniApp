@@ -1,4 +1,4 @@
-﻿namespace Ex02.UI
+﻿namespace Ex03.UI
 {
     public partial class MainForm
     {
@@ -133,7 +133,7 @@
             // 
             // buttonLogout
             // 
-            this.buttonLogout.Image = global::Ex02.UI.Properties.Resources.Logout;
+            this.buttonLogout.Image = global::Ex03.UI.Properties.Resources.Logout;
             this.buttonLogout.Location = new System.Drawing.Point(612, 836);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(738, 124);
@@ -153,7 +153,7 @@
             // 
             this.buttonAlbumScanner.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.buttonAlbumScanner.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.buttonAlbumScanner.Image = global::Ex02.UI.Properties.Resources.AlbumScanner;
+            this.buttonAlbumScanner.Image = global::Ex03.UI.Properties.Resources.AlbumScanner;
             this.buttonAlbumScanner.Location = new System.Drawing.Point(1382, 167);
             this.buttonAlbumScanner.Name = "buttonAlbumScanner";
             this.buttonAlbumScanner.Size = new System.Drawing.Size(401, 253);
@@ -216,7 +216,7 @@
             // 
             // userFacadeBindingSource
             // 
-            this.userFacadeBindingSource.DataSource = typeof(Ex02.Services.UserFacade);
+            this.userFacadeBindingSource.DataSource = typeof(Ex03.Services.UserFacade);
             // 
             // bindingNavigatorCountItem
             // 
