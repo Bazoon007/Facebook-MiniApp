@@ -53,6 +53,7 @@
     <Compile Include="CompositePhotoProxy.cs" />
     <Compile Include="FacebookFeature.cs" />
     <Compile Include="IIterator.cs" />
+    <Compile Include="IPostStrategy.cs" />
     <Compile Include="IPhotoComponent.cs" />
     <Compile Include="Posts.cs" />
     <Compile Include="Login.cs" />
