@@ -34,10 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Facebook">
-      <HintPath>..\..\01_FB01_BasicFacebookFeatures.V6.8.0.17\FBApi\Facebook.dll</HintPath>
+      <HintPath>..\Facebook.dll</HintPath>
     </Reference>
     <Reference Include="FbGraphApiWrapper">
-      <HintPath>..\..\01_FB01_BasicFacebookFeatures.V6.8.0.17\FBApi\FbGraphApiWrapper.dll</HintPath>
+      <HintPath>..\FbGraphApiWrapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -116,12 +116,6 @@
     <None Include="Resources\Login.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ex03.Services\Ex03.Services.csproj">
-      <Project>{a4fbe1b5-b2ae-40c5-88e8-0ca2f6caf00a}</Project>
-      <Name>Ex03.Services</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Album Scanner.png" />
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +132,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\BlastFromThePast1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ex03.Services\Ex03.Services.csproj">
+      <Project>{a4fbe1b5-b2ae-40c5-88e8-0ca2f6caf00a}</Project>
+      <Name>Ex03.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
