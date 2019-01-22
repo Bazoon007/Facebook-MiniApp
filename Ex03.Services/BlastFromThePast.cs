@@ -9,6 +9,7 @@ namespace Ex03.Services
     {
         private static readonly Random sr_RandomPostPicker = new Random();
         private readonly FacebookObjectCollection<Post> r_Posts;
+        public IPostStrategy PostStrategy { get; set; }
 
         public BlastFromThePast(UserFacade i_User) : base(i_User)
         {

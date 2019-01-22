@@ -52,6 +52,7 @@
     <Compile Include="BlastFromThePast.cs" />
     <Compile Include="CompositePhotoProxy.cs" />
     <Compile Include="FacebookFeature.cs" />
+    <Compile Include="IPostStrategy.cs" />
     <Compile Include="IPhotoComponent.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="PhotoProxy.cs" />
