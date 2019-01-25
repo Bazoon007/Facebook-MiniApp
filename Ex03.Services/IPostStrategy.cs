@@ -8,6 +8,6 @@ namespace Ex03.Services
 {
     public interface IPostStrategy
     {
-        Post GetPost();
+        Post GetPost(int i_Year);
     }
 }

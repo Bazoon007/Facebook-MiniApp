@@ -70,16 +70,19 @@ namespace Ex03.Services
 
         public void ExecuteBlast(int i_Year, string i_BlastType)
         {
+            IPostStrategy postStrategy = null;
+            if (i_BlastType == "Random")
+            {
+                postStrategy = new RandomPostStrategy();
+            }
+            else if (i_BlastType == "Most Liked")
+            {
+                postStrategy = new MostLikedPostStrategy();
+            }
+
             if (!string.IsNullOrEmpty(i_BlastType) && i_Year > 0)
             {
-                if (i_BlastType == "Random")
-                {
-                    PostResult = randomPost(i_Year);
-                }
-                else if (i_BlastType == "Most Liked")
-                {
-                    PostResult = mostLikedPost(i_Year);
-                }
+                PostResult = PostStrategy.GetPost(i_Year);
             }
         }
 
@@ -92,6 +95,37 @@ namespace Ex03.Services
             public void Execute()
             {
                 new Thread(() => Client.ExecuteBlast(Year, BlastType)).Start();
+            }
+        }
+
+        private class RandomPostStrategy : IPostStrategy
+        {
+            public Post GetPost(int i_Year)
+            {
+                IList<Post> postList = createPostYearList(i_Year);
+                int random = sr_RandomPostPicker.Next(postList.Count);
+
+                return postList.ElementAt(random);
+            }
+        }
+
+        private class MostLikedPostStrategy : IPostStrategy
+        {
+            public Post GetPost(int i_Year)
+            {
+                IList<Post> postList = createPostYearList(i_Year);
+                Post mostLikedPost = null;
+                int MaxLikes = -1;
+                foreach (Post post in postList)
+                {
+                    if (post.LikedBy.Count > MaxLikes)
+                    {
+                        MaxLikes = post.LikedBy.Count;
+                        mostLikedPost = post;
+                    }
+                }
+
+                return mostLikedPost != null ? mostLikedPost : null;
             }
         }
     }
