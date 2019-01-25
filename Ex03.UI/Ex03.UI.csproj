@@ -63,6 +63,12 @@
     <Compile Include="BlastFromThePastForm.Designer.cs">
       <DependentUpon>BlastFromThePastForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommandButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CommandButton.Designer.cs">
+      <DependentUpon>CommandButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="FeatureFormFactory.cs" />
     <Compile Include="IFeatureFrom.cs" />
     <Compile Include="LoginForm.cs">

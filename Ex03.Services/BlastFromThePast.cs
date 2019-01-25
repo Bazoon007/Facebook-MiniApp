@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using FacebookWrapper.ObjectModel;
 
 namespace Ex03.Services
@@ -9,6 +10,7 @@ namespace Ex03.Services
     {
         private static readonly Random sr_RandomPostPicker = new Random();
         private readonly FacebookObjectCollection<Post> r_Posts;
+        public Post PostResult { get; private set; }
         public IPostStrategy PostStrategy { get; set; }
 
         public BlastFromThePast(UserFacade i_User) : base(i_User)
@@ -41,7 +43,7 @@ namespace Ex03.Services
             return postList;
         }
 
-        public Post RandomPost(int i_Year)
+        private Post randomPost(int i_Year)
         {
             IList<Post> postList = createPostYearList(i_Year);
             int random = sr_RandomPostPicker.Next(postList.Count);
@@ -49,7 +51,7 @@ namespace Ex03.Services
             return postList.ElementAt(random);
         }
 
-        public Post MostLikedPost(int i_Year)
+        private Post mostLikedPost(int i_Year)
         {
             IList<Post> postList = createPostYearList(i_Year);
             Post mostLikedPost = null;
@@ -64,6 +66,33 @@ namespace Ex03.Services
             }
 
             return mostLikedPost != null ? mostLikedPost : null;
+        }
+
+        public void ExecuteBlast(int i_Year, string i_BlastType)
+        {
+            if (!string.IsNullOrEmpty(i_BlastType) && i_Year > 0)
+            {
+                if (i_BlastType == "Random")
+                {
+                    PostResult = randomPost(i_Year);
+                }
+                else if (i_BlastType == "Most Liked")
+                {
+                    PostResult = mostLikedPost(i_Year);
+                }
+            }
+        }
+
+        public class ExecuteBlastCommand : ICommand
+        {
+            public BlastFromThePast Client { get; set; }
+            public int Year { get; set; }
+            public string BlastType { get; set; }
+
+            public void Execute()
+            {
+                new Thread(() => Client.ExecuteBlast(Year, BlastType)).Start();
+            }
         }
     }
 }

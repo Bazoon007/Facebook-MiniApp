@@ -11,7 +11,8 @@ namespace Ex03.UI
     public partial class BlastFromThePastForm : Form, IFeatureFrom
     {
         private readonly BlastFromThePast r_BlastFromThePast;
-
+        private int m_SelectedYear;
+        private string m_BlastType;
         public FacebookFeature FacebookFeature
         {
             get
@@ -41,34 +42,26 @@ namespace Ex03.UI
             }
 
             comboBoxYearPicker.Invoke(new Action(() => comboBoxYearPicker.SelectedIndex = 1));
+            comboBoxYearPicker.Invoke(new Action(() => m_SelectedYear = (int)comboBoxYearPicker.SelectedItem));
         }
 
-        private void executeBlast(int i_SelectedYear, string i_BlastType)
+        private void displayPost()
         {
-            Post selectedPost = null;
-            if (!string.IsNullOrEmpty(i_BlastType))
+            Post postResult = r_BlastFromThePast.PostResult;
+            if (postResult != null)
             {
-                if (i_BlastType == "Random")
+                if (!string.IsNullOrEmpty(postResult.Message))
                 {
-                    selectedPost = r_BlastFromThePast.RandomPost(i_SelectedYear);
-                }
-                else if (i_BlastType == "Most Liked")
-                {
-                    selectedPost = r_BlastFromThePast.MostLikedPost(i_SelectedYear);
-                }
-
-                if (!string.IsNullOrEmpty(selectedPost.Message))
-                {
-                    textBoxPostContent.Invoke(new Action(() => textBoxPostContent.Text = selectedPost.Message));
+                    textBoxPostContent.Invoke(new Action(() => textBoxPostContent.Text = postResult.Message));
                 }
                 else
                 {
                     textBoxPostContent.Invoke(new Action(() => textBoxPostContent.Text = "No Textual Content"));
                 }
 
-                labelDate.Invoke(new Action(() => labelDate.Text = selectedPost.CreatedTime.ToString()));
-                labelLikes.Invoke(new Action(() => labelLikes.Text = selectedPost.LikedBy.Count.ToString()));
-                labelComments.Invoke(new Action(() => labelComments.Text = selectedPost.Comments.Count.ToString())); 
+                labelDate.Invoke(new Action(() => labelDate.Text = postResult.CreatedTime.ToString()));
+                labelLikes.Invoke(new Action(() => labelLikes.Text = postResult.LikedBy.Count.ToString()));
+                labelComments.Invoke(new Action(() => labelComments.Text = postResult.Comments.Count.ToString())); 
             }
             else
             {
@@ -100,14 +93,32 @@ namespace Ex03.UI
 
         void IFeatureFrom.InitFeatureForm()
         {
+            commandButtonExecuteBlast.Command = new BlastFromThePast.ExecuteBlastCommand() { Client = (BlastFromThePast)FacebookFeature };
+            commandButtonExecuteBlast.CommandFinished += ((IFeatureFrom)this).ExecuteFeature;
             new Thread(addYears).Start();
         }
 
         void IFeatureFrom.ExecuteFeature()
         {
-            int selectedYear = (int)comboBoxYearPicker.SelectedItem;
-            string blastType = getBlastType();
-            new Thread(() => executeBlast(selectedYear, blastType)).Start();
+            new Thread(displayPost).Start();
+        }
+
+        private void comboBoxYearPicker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            m_SelectedYear = (int)comboBoxYearPicker.SelectedItem;
+            updateExecuteBlastCommand();
+        }
+
+        private void updateExecuteBlastCommand()
+        {
+            ((BlastFromThePast.ExecuteBlastCommand)commandButtonExecuteBlast.Command).Year = m_SelectedYear;
+            ((BlastFromThePast.ExecuteBlastCommand)commandButtonExecuteBlast.Command).BlastType = m_BlastType;
+        }
+
+        private void radioButtonStrategy_CheckedChanged(object sender, EventArgs e)
+        {
+            m_BlastType = getBlastType();
+            updateExecuteBlastCommand();
         }
     }
 }
