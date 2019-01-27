@@ -1,14 +1,14 @@
-﻿using Ex03.Services;
-using System;
-using System.ComponentModel;
+﻿using System;
 using System.Threading;
 using System.Windows.Forms;
+using Ex03.Services;
 
 namespace Ex03.UI
 {
-    public partial class CommandButton : Button
+    internal partial class CommandButton : Button
     {
         public ICommand Command { get; set; }
+
         public event Action CommandFinished;
 
         public CommandButton()
@@ -24,9 +24,7 @@ namespace Ex03.UI
 
         private void commandButton_Click(object sender, EventArgs e)
         {
-            new Thread
-                (
-                () =>
+            new Thread(() =>
                 {
                     try
                     {
@@ -36,8 +34,7 @@ namespace Ex03.UI
                     {
                         OnCommandFinished();
                     }
-                }
-                ).Start();
+                }).Start();
         }
 
         protected virtual void OnCommandFinished()

@@ -8,7 +8,7 @@ using FacebookWrapper.ObjectModel;
 
 namespace Ex03.UI
 {
-    public partial class AlbumScannerForm : Form, IFeatureFrom
+    internal partial class AlbumScannerForm : Form, IFeatureFrom
     {
         private readonly AlbumScanner r_AlbumScanner;
         private readonly ImageList imageListAlbumPhoto = new ImageList();

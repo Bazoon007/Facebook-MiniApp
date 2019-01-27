@@ -6,9 +6,10 @@ namespace Ex03.Services
     public class AlbumScanner : FacebookFeature
     {
         private readonly FacebookObjectCollection<Album> r_Albums;
-
-        public Album ScannedAlbum { get; set; }
         private readonly IList<IPhotoComponent> r_SelectedPhotosList = new List<IPhotoComponent>();
+
+        public Album ScannedAlbum { get; set; }    
+
         public bool LikedAllSelectedPhotosSuccess { get; set; }
 
         public FacebookObjectCollection<Album> Albums
@@ -113,6 +114,7 @@ namespace Ex03.Services
                         selfLikedPhoto = v_SelfLikedPhoto;
                         break;
                     }
+
                     LikedAllSelectedPhotosSuccess = !selfLikedPhoto;
                 }
                 catch

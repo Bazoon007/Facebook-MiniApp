@@ -1,6 +1,6 @@
 ﻿namespace Ex03.UI
 {
-    public partial class MainForm
+    internal partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -429,8 +429,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonAlbumScanner;
         private System.Windows.Forms.PictureBox pictureBoxProfilePicture;
         private System.Windows.Forms.Button buttonLogout;

@@ -5,7 +5,7 @@ using FacebookWrapper;
 
 namespace Ex03.UI
 {
-    public partial class LoginForm : Form
+    internal partial class LoginForm : Form
     {
         public LoginForm()
         {

@@ -5,7 +5,7 @@ using Ex03.Services;
 
 namespace Ex03.UI
 {
-    public partial class MainForm : Form
+    internal partial class MainForm : Form
     {
         private readonly AppSettings r_AppSettings;
         private readonly UserFacade r_User;

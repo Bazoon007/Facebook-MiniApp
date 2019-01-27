@@ -1,6 +1,6 @@
 ﻿namespace Ex03.UI
 {
-    public partial class AlbumScannerForm
+    internal partial class AlbumScannerForm
     {
         /// <summary>
         /// Required designer variable.
@@ -38,10 +38,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.labelNumberOfPhotosToLike = new System.Windows.Forms.Label();
-            this.commandButtonLikeSelectedPhotos = new Ex03.UI.CommandButton();
             this.buttonResetFilter = new System.Windows.Forms.Button();
             this.buttonTagFilter = new System.Windows.Forms.Button();
             this.buttonScan = new System.Windows.Forms.Button();
+            this.commandButtonLikeSelectedPhotos = new Ex03.UI.CommandButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbumPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,27 +133,12 @@
             this.labelNumberOfPhotosToLike.TabIndex = 12;
             this.labelNumberOfPhotosToLike.Text = "0";
             // 
-            // commandButtonLikeSelectedPhotos
-            // 
-            this.commandButtonLikeSelectedPhotos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.commandButtonLikeSelectedPhotos.Command = null;
-            this.commandButtonLikeSelectedPhotos.Enabled = false;
-            this.commandButtonLikeSelectedPhotos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.commandButtonLikeSelectedPhotos.Image = global::Ex03.UI.Properties.Resources.LikeAlbum;
-            this.commandButtonLikeSelectedPhotos.Location = new System.Drawing.Point(81, 616);
-            this.commandButtonLikeSelectedPhotos.Name = "commandButtonLikeSelectedPhotos";
-            this.commandButtonLikeSelectedPhotos.Size = new System.Drawing.Size(388, 265);
-            this.commandButtonLikeSelectedPhotos.TabIndex = 13;
-            this.commandButtonLikeSelectedPhotos.Text = "Like!";
-            this.commandButtonLikeSelectedPhotos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.commandButtonLikeSelectedPhotos.UseVisualStyleBackColor = false;
-            // 
             // buttonResetFilter
             // 
             this.buttonResetFilter.Enabled = false;
             this.buttonResetFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.buttonResetFilter.ForeColor = System.Drawing.Color.Blue;
-            this.buttonResetFilter.Location = new System.Drawing.Point(685, 757);
+            this.buttonResetFilter.Location = new System.Drawing.Point(722, 757);
             this.buttonResetFilter.Name = "buttonResetFilter";
             this.buttonResetFilter.Size = new System.Drawing.Size(241, 124);
             this.buttonResetFilter.TabIndex = 17;
@@ -166,7 +151,7 @@
             this.buttonTagFilter.Enabled = false;
             this.buttonTagFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.buttonTagFilter.ForeColor = System.Drawing.Color.Blue;
-            this.buttonTagFilter.Location = new System.Drawing.Point(963, 757);
+            this.buttonTagFilter.Location = new System.Drawing.Point(1013, 757);
             this.buttonTagFilter.Name = "buttonTagFilter";
             this.buttonTagFilter.Size = new System.Drawing.Size(241, 124);
             this.buttonTagFilter.TabIndex = 18;
@@ -186,16 +171,31 @@
             this.buttonScan.UseVisualStyleBackColor = true;
             this.buttonScan.Click += new System.EventHandler(this.buttonScan_Click);
             // 
+            // commandButtonLikeSelectedPhotos
+            // 
+            this.commandButtonLikeSelectedPhotos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.commandButtonLikeSelectedPhotos.Command = null;
+            this.commandButtonLikeSelectedPhotos.Enabled = false;
+            this.commandButtonLikeSelectedPhotos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.commandButtonLikeSelectedPhotos.Image = global::Ex03.UI.Properties.Resources.LikeAlbum;
+            this.commandButtonLikeSelectedPhotos.Location = new System.Drawing.Point(120, 599);
+            this.commandButtonLikeSelectedPhotos.Name = "commandButtonLikeSelectedPhotos";
+            this.commandButtonLikeSelectedPhotos.Size = new System.Drawing.Size(388, 265);
+            this.commandButtonLikeSelectedPhotos.TabIndex = 21;
+            this.commandButtonLikeSelectedPhotos.Text = "Like!";
+            this.commandButtonLikeSelectedPhotos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.commandButtonLikeSelectedPhotos.UseVisualStyleBackColor = false;
+            // 
             // AlbumScannerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(1882, 972);
+            this.Controls.Add(this.commandButtonLikeSelectedPhotos);
             this.Controls.Add(this.buttonScan);
             this.Controls.Add(this.buttonTagFilter);
             this.Controls.Add(this.buttonResetFilter);
-            this.Controls.Add(this.commandButtonLikeSelectedPhotos);
             this.Controls.Add(this.labelNumberOfPhotosToLike);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -224,9 +224,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelNumberOfPhotosToLike;
-        private CommandButton commandButtonLikeSelectedPhotos;
         private System.Windows.Forms.Button buttonResetFilter;
         private System.Windows.Forms.Button buttonTagFilter;
         private System.Windows.Forms.Button buttonScan;
+        private CommandButton commandButtonLikeSelectedPhotos;
     }
 }

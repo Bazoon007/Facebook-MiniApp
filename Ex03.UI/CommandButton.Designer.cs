@@ -1,6 +1,6 @@
 ﻿namespace Ex03.UI
 {
-    partial class CommandButton
+    internal partial class CommandButton
     {
         /// <summary>
         /// Required designer variable.
@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 

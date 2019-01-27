@@ -8,11 +8,12 @@ using Ex03.Services;
 
 namespace Ex03.UI
 {
-    public partial class BlastFromThePastForm : Form, IFeatureFrom
+    internal partial class BlastFromThePastForm : Form, IFeatureFrom
     {
         private readonly BlastFromThePast r_BlastFromThePast;
         private int m_SelectedYear;
         private string m_BlastType;
+
         public FacebookFeature FacebookFeature
         {
             get

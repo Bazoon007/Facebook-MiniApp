@@ -4,14 +4,14 @@ namespace Ex03.UI
 {
     internal class FeatureFormFactory
     {
-        public static IFeatureFrom CreateForm(UserFacade i_User, string i_BtnName)
+        internal static IFeatureFrom CreateForm(UserFacade i_User, string i_ButtonName)
         {
             IFeatureFrom form = null;
-            if (i_BtnName == "buttonAlbumScanner")
+            if (i_ButtonName == "buttonAlbumScanner")
             {
                 form = new AlbumScannerForm(i_User);
             }
-            else if (i_BtnName == "buttonBlastFromThePast")
+            else if (i_ButtonName == "buttonBlastFromThePast")
             {
                 form = new BlastFromThePastForm(i_User);
             }

@@ -1,6 +1,6 @@
 ﻿namespace Ex03.UI
 {
-    public partial class LoginForm
+    internal partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.

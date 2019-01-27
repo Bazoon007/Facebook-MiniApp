@@ -1,6 +1,6 @@
 ﻿namespace Ex03.UI
 {
-    public partial class BlastFromThePastForm
+    internal partial class BlastFromThePastForm
     {
         /// <summary>
         /// Required designer variable.

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using FacebookWrapper.ObjectModel;
 
 namespace Ex03.Services
@@ -11,7 +9,9 @@ namespace Ex03.Services
     {
         private static readonly Random sr_RandomPostPicker = new Random();
         private readonly FacebookObjectCollection<Post> r_Posts;
+
         public Post PostResult { get; private set; }
+
         public IPostStrategy PostStrategy { get; set; }
 
         public BlastFromThePast(UserFacade i_User) : base(i_User)
@@ -90,7 +90,9 @@ namespace Ex03.Services
         public class ExecuteBlastCommand : ICommand
         {
             public BlastFromThePast Client { get; set; }
+
             public int Year { get; set; }
+
             public string BlastType { get; set; }
 
             public void Execute()
