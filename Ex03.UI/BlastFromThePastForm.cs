@@ -28,11 +28,6 @@ namespace Ex03.UI
             ((IFeatureFrom)this).InitFeatureForm();
         }
 
-        private void buttonExecuteBlast_Click(object sender, EventArgs e)
-        {
-            ((IFeatureFrom)this).ExecuteFeature();
-        }
-
         private void addYears()
         {
             ISet<int> yearSet = r_BlastFromThePast.CreateYearSet();

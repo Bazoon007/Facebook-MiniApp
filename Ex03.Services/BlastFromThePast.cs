@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -70,19 +71,19 @@ namespace Ex03.Services
 
         public void ExecuteBlast(int i_Year, string i_BlastType)
         {
-            IPostStrategy postStrategy = null;
+            IList<Post> postList = createPostYearList(i_Year);
             if (i_BlastType == "Random")
             {
-                postStrategy = new RandomPostStrategy();
+                PostStrategy = new RandomPostStrategy();
             }
             else if (i_BlastType == "Most Liked")
             {
-                postStrategy = new MostLikedPostStrategy();
+                PostStrategy = new MostLikedPostStrategy();
             }
 
             if (!string.IsNullOrEmpty(i_BlastType) && i_Year > 0)
             {
-                PostResult = PostStrategy.GetPost(i_Year);
+                PostResult = PostStrategy.GetPost(postList);
             }
         }
 
@@ -94,29 +95,27 @@ namespace Ex03.Services
 
             public void Execute()
             {
-                new Thread(() => Client.ExecuteBlast(Year, BlastType)).Start();
+                Client.ExecuteBlast(Year, BlastType);
             }
         }
 
         private class RandomPostStrategy : IPostStrategy
         {
-            public Post GetPost(int i_Year)
+            public Post GetPost(IEnumerable<Post> i_Posts)
             {
-                IList<Post> postList = createPostYearList(i_Year);
-                int random = sr_RandomPostPicker.Next(postList.Count);
+                int random = sr_RandomPostPicker.Next(i_Posts.Count());
 
-                return postList.ElementAt(random);
+                return i_Posts.ElementAt(random);
             }
         }
 
         private class MostLikedPostStrategy : IPostStrategy
         {
-            public Post GetPost(int i_Year)
+            public Post GetPost(IEnumerable<Post> i_Posts)
             {
-                IList<Post> postList = createPostYearList(i_Year);
                 Post mostLikedPost = null;
                 int MaxLikes = -1;
-                foreach (Post post in postList)
+                foreach (Post post in i_Posts)
                 {
                     if (post.LikedBy.Count > MaxLikes)
                     {

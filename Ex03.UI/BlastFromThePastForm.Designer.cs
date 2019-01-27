@@ -29,7 +29,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonExecuteBlast = new System.Windows.Forms.Button();
             this.textBoxPostContent = new System.Windows.Forms.TextBox();
             this.comboBoxYearPicker = new System.Windows.Forms.ComboBox();
             this.groupBoxBlastType = new System.Windows.Forms.GroupBox();
@@ -46,21 +45,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.commandButtonExecuteBlast = new Ex03.UI.CommandButton();
+            this.customControl11 = new Ex03.UI.CustomControl1();
             this.groupBoxBlastType.SuspendLayout();
             this.groupBoxPostDetails.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // buttonExecuteBlast
-            // 
-            this.buttonExecuteBlast.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.buttonExecuteBlast.ForeColor = System.Drawing.Color.DarkGreen;
-            this.buttonExecuteBlast.Location = new System.Drawing.Point(353, 162);
-            this.buttonExecuteBlast.Name = "buttonExecuteBlast";
-            this.buttonExecuteBlast.Size = new System.Drawing.Size(316, 92);
-            this.buttonExecuteBlast.TabIndex = 3;
-            this.buttonExecuteBlast.Text = "Blast yourself to the past!";
-            this.buttonExecuteBlast.UseVisualStyleBackColor = true;
-            this.buttonExecuteBlast.Click += new System.EventHandler(this.buttonExecuteBlast_Click);
             // 
             // textBoxPostContent
             // 
@@ -207,13 +195,22 @@
             // 
             this.commandButtonExecuteBlast.Command = null;
             this.commandButtonExecuteBlast.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.commandButtonExecuteBlast.ForeColor = System.Drawing.Color.Firebrick;
-            this.commandButtonExecuteBlast.Location = new System.Drawing.Point(353, 264);
+            this.commandButtonExecuteBlast.ForeColor = System.Drawing.Color.DarkGreen;
+            this.commandButtonExecuteBlast.Location = new System.Drawing.Point(348, 205);
             this.commandButtonExecuteBlast.Name = "commandButtonExecuteBlast";
             this.commandButtonExecuteBlast.Size = new System.Drawing.Size(316, 92);
             this.commandButtonExecuteBlast.TabIndex = 11;
             this.commandButtonExecuteBlast.Text = "Blast yourself to the past!";
             this.commandButtonExecuteBlast.UseVisualStyleBackColor = true;
+            // 
+            // customControl11
+            // 
+            this.customControl11.Command = null;
+            this.customControl11.Location = new System.Drawing.Point(679, 146);
+            this.customControl11.Name = "customControl11";
+            this.customControl11.Size = new System.Drawing.Size(414, 179);
+            this.customControl11.TabIndex = 12;
+            this.customControl11.Text = "customControl11";
             // 
             // BlastFromThePastForm
             // 
@@ -221,6 +218,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1891, 1071);
+            this.Controls.Add(this.customControl11);
             this.Controls.Add(this.commandButtonExecuteBlast);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBoxPostDetails);
@@ -228,7 +226,6 @@
             this.Controls.Add(this.groupBoxBlastType);
             this.Controls.Add(this.comboBoxYearPicker);
             this.Controls.Add(this.textBoxPostContent);
-            this.Controls.Add(this.buttonExecuteBlast);
             this.Name = "BlastFromThePastForm";
             this.Text = "Blast From The Past";
             this.groupBoxBlastType.ResumeLayout(false);
@@ -241,7 +238,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button buttonExecuteBlast;
         private System.Windows.Forms.TextBox textBoxPostContent;
         private System.Windows.Forms.ComboBox comboBoxYearPicker;
         private System.Windows.Forms.GroupBox groupBoxBlastType;
@@ -258,5 +254,6 @@
         private System.Windows.Forms.Label label4;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private CommandButton commandButtonExecuteBlast;
+        private CustomControl1 customControl11;
     }
 }

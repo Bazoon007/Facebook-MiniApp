@@ -69,6 +69,12 @@
     <Compile Include="CommandButton.Designer.cs">
       <DependentUpon>CommandButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControl1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl1.Designer.cs">
+      <DependentUpon>CustomControl1.cs</DependentUpon>
+    </Compile>
     <Compile Include="FeatureFormFactory.cs" />
     <Compile Include="IFeatureFrom.cs" />
     <Compile Include="LoginForm.cs">
