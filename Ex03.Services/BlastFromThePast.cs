@@ -69,7 +69,7 @@ namespace Ex03.Services
             return mostLikedPost != null ? mostLikedPost : null;
         }
 
-        public void ExecuteBlast(int i_Year, string i_BlastType)
+        private void executeBlast(int i_Year, string i_BlastType)
         {
             IList<Post> postList = createPostYearList(i_Year);
             if (i_BlastType == "Random")
@@ -95,7 +95,7 @@ namespace Ex03.Services
 
             public void Execute()
             {
-                Client.ExecuteBlast(Year, BlastType);
+                Client.executeBlast(Year, BlastType);
             }
         }
 

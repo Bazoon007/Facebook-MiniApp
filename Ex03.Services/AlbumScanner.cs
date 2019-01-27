@@ -98,7 +98,7 @@ namespace Ex03.Services
             return tagFound;
         }
 
-        public void LikeSelectedPhotos()
+        private void likeSelectedPhotos()
         {
             const bool v_LikeSuccessful = true;
             const bool v_SelfLikedPhoto = true;
@@ -128,7 +128,7 @@ namespace Ex03.Services
 
             public void Execute()
             {
-                Client.LikeSelectedPhotos();
+                Client.likeSelectedPhotos();
             }
         }
     }   
