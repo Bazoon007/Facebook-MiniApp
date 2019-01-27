@@ -146,7 +146,7 @@ namespace Ex03.UI
             listBoxAlbumList.Items.Clear();
             listViewAlbumPhotos.Items.Clear();
             commandButtonLikeSelectedPhotos.Command = new AlbumScanner.LikeSelectedPhotosCommand() { Client = (AlbumScanner)FacebookFeature };
-            commandButtonLikeSelectedPhotos.CommandFinished += likeSelectedPhotos;
+            commandButtonLikeSelectedPhotos.CommandFinished += displayLikeSelectedPhotosResult;
             new Thread(fetchAlbums).Start();
         }
 
@@ -191,12 +191,7 @@ namespace Ex03.UI
             commandButtonLikeSelectedPhotos.Enabled = m_NumberOfPhotosToLike > 0;
         }
 
-        private void buttonLikeSelectedPhotos_Click(object sender, EventArgs e)
-        {
-            new Thread(likeSelectedPhotos).Start();
-        }
-
-        private void likeSelectedPhotos()
+        private void displayLikeSelectedPhotosResult()
         {
             string message = r_AlbumScanner.LikedAllSelectedPhotosSuccess ? "Liking all selected photos -complete!!" : "Error - not all selected photos were liked :(.";
             MessageBox.Show(message);
