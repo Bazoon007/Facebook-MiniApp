@@ -8,12 +8,22 @@ namespace Ex03.Services
         private readonly FacebookObjectCollection<Album> r_Albums;
 
         public Album ScannedAlbum { get; set; }
+        private readonly IList<IPhotoComponent> r_SelectedPhotosList = new List<IPhotoComponent>();
+        public bool LikedAllSelectedPhotos { get; set; }
 
         public FacebookObjectCollection<Album> Albums
         {
             get
             {
                 return r_Albums;
+            }
+        }
+
+        public IList<IPhotoComponent> SelectedPhotosList
+        {
+            get
+            {
+                return r_SelectedPhotosList;
             }
         }
 
@@ -88,11 +98,11 @@ namespace Ex03.Services
             return tagFound;
         }
 
-        public bool LikeAllPhotos(IList<IPhotoComponent> i_SelectedPhotosList)
+        public void LikeSelectedPhotos()
         {
             const bool v_LikeSuccessful = true;
-            bool likeSuccessful = v_LikeSuccessful;
-            foreach (IPhotoComponent photo in i_SelectedPhotosList)
+            LikedAllSelectedPhotos = !v_LikeSuccessful;
+            foreach (IPhotoComponent photo in SelectedPhotosList)
             {
                 if (!photo.Like(UserId))
                 {
@@ -101,6 +111,52 @@ namespace Ex03.Services
             }
 
             return likeSuccessful;
+        }
+
+        public class LikeSelectedPhotosCommand : ICommand
+        {
+            public AlbumScanner Client { get; set; }
+
+            public void Execute()
+            {
+                Client.LikeSelectedPhotos();
+            }
+        }
+
+        public class ExecuteBlastCommand : ICommand
+        {
+            public BlastFromThePast Client { get; set; }
+            public int Year { get; set; }
+            public string BlastType { get; set; }
+
+            public void Execute()
+            {
+                Client.ExecuteBlast(Year, BlastType);
+            }
+        }
+
+        public class ExecuteBlastCommand : ICommand
+        {
+            public BlastFromThePast Client { get; set; }
+            public int Year { get; set; }
+            public string BlastType { get; set; }
+
+            public void Execute()
+            {
+                Client.ExecuteBlast(Year, BlastType);
+            }
+        }
+
+        public class ExecuteBlastCommand : ICommand
+        {
+            public BlastFromThePast Client { get; set; }
+            public int Year { get; set; }
+            public string BlastType { get; set; }
+
+            public void Execute()
+            {
+                Client.ExecuteBlast(Year, BlastType);
+            }
         }
     }   
 }

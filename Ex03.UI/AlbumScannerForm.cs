@@ -12,7 +12,6 @@ namespace Ex03.UI
     {
         private readonly AlbumScanner r_AlbumScanner;
         private readonly ImageList imageListAlbumPhoto = new ImageList();
-        private readonly IList<IPhotoComponent> r_SelectedPhotosList = new List<IPhotoComponent>();
         private int m_NumberOfPhotosToLike = 0;
 
         public FacebookFeature FacebookFeature
@@ -70,8 +69,8 @@ namespace Ex03.UI
                 List<string> taggedPersonList = (List<string>)r_AlbumScanner.FetchTaggedPersonList(i_Filter);
                 addTaggedFriendNameToCheckedListBox(taggedPersonList);
                 bool enableScanButtons = imageListAlbumPhoto.Images.Count > 0;
-                buttonTagFilter.Invoke(new Action(() => buttonTagFilter.Enabled = enableScanButtons));
-                buttonResetFilter.Invoke(new Action(() => buttonResetFilter.Enabled = enableScanButtons));
+                commandButtonTagFilter.Invoke(new Action(() => commandButtonTagFilter.Enabled = enableScanButtons));
+                commandButtonResetFilter.Invoke(new Action(() => commandButtonResetFilter.Enabled = enableScanButtons));
                 if (!i_Filter && !i_Reset)
                 { 
                     r_SelectedPhotosList.Add(new CompositePhotoProxy());
@@ -146,6 +145,14 @@ namespace Ex03.UI
         {
             listBoxAlbumList.Items.Clear();
             listViewAlbumPhotos.Items.Clear();
+            commandButtonLikeSelectedPhotos.Command = new AlbumScanner.LikeSelectedPhotosCommand() { Client = (AlbumScanner)FacebookFeature };
+            commandButtonLikeSelectedPhotos.CommandFinished += ((IFeatureFrom)this).ExecuteFeature;
+            commandButtonExecuteBlast.Command = new BlastFromThePast.ExecuteBlastCommand() { Client = (BlastFromThePast)FacebookFeature };
+            commandButtonExecuteBlast.CommandFinished += ((IFeatureFrom)this).ExecuteFeature;
+            commandButtonExecuteBlast.Command = new BlastFromThePast.ExecuteBlastCommand() { Client = (BlastFromThePast)FacebookFeature };
+            commandButtonExecuteBlast.CommandFinished += ((IFeatureFrom)this).ExecuteFeature;
+            commandButtonExecuteBlast.Command = new BlastFromThePast.ExecuteBlastCommand() { Client = (BlastFromThePast)FacebookFeature };
+            commandButtonExecuteBlast.CommandFinished += ((IFeatureFrom)this).ExecuteFeature;
             new Thread(fetchAlbums).Start();
         }
 
@@ -166,28 +173,28 @@ namespace Ex03.UI
             IPhotoComponent photoProxy = (PhotoProxy)(i_Sender as ListView).SelectedItems[0].Tag;
             try
             {
-                r_SelectedPhotosList[r_SelectedPhotosList.Count - 1].Add(photoProxy);
+                r_AlbumScanner.SelectedPhotosList[r_AlbumScanner.SelectedPhotosList.Count - 1].Add(photoProxy);
             }
             catch (NotImplementedException)
             {
-                if (!photoProxy.Equals(r_SelectedPhotosList[r_SelectedPhotosList.Count - 1]))
+                if (!photoProxy.Equals(r_AlbumScanner.SelectedPhotosList[r_AlbumScanner.SelectedPhotosList.Count - 1]))
                 {
-                    r_SelectedPhotosList[r_SelectedPhotosList.Count - 1] = photoProxy;
+                    r_AlbumScanner.SelectedPhotosList[r_AlbumScanner.SelectedPhotosList.Count - 1] = photoProxy;
                 }
                 else
                 {
-                    r_SelectedPhotosList[r_SelectedPhotosList.Count - 1] = new PhotoProxy();
+                    r_AlbumScanner.SelectedPhotosList[r_AlbumScanner.SelectedPhotosList.Count - 1] = new PhotoProxy();
                 }
             }
 
             m_NumberOfPhotosToLike = 0;
-            foreach (IPhotoComponent photoComponent in r_SelectedPhotosList)
+            foreach (IPhotoComponent photoComponent in r_AlbumScanner.SelectedPhotosList)
             {
                 m_NumberOfPhotosToLike += photoComponent.GetChildren().Count;
             }
 
             labelNumberOfPhotosToLike.Text = m_NumberOfPhotosToLike.ToString();
-            buttonLikeSelectedPhotos.Enabled = m_NumberOfPhotosToLike > 0;
+            commandButtonLikeSelectedPhotos.Enabled = m_NumberOfPhotosToLike > 0;
         }
 
         private void buttonLikeSelectedPhotos_Click(object sender, EventArgs e)
@@ -199,7 +206,6 @@ namespace Ex03.UI
         {
             try
             {
-                if (r_AlbumScanner.LikeAllPhotos(r_SelectedPhotosList))
                 {
                     MessageBox.Show(string.Format("Liking all selected photos - complete!!"));
                 }

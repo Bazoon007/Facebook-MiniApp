@@ -29,20 +29,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlbumScannerForm));
             this.listBoxAlbumList = new System.Windows.Forms.ListBox();
-            this.buttonScan = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.listViewAlbumPhotos = new System.Windows.Forms.ListView();
             this.checkedListBoxTaggedFriends = new System.Windows.Forms.CheckedListBox();
-            this.buttonTagFilter = new System.Windows.Forms.Button();
-            this.buttonResetFilter = new System.Windows.Forms.Button();
-            this.buttonLikeSelectedPhotos = new System.Windows.Forms.Button();
             this.pictureBoxAlbumPicture = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.labelNumberOfPhotosToLike = new System.Windows.Forms.Label();
+            this.commandButtonLikeSelectedPhotos = new Ex03.UI.CommandButton();
+            this.commandButtonResetFilter = new Ex03.UI.CommandButton();
+            this.commandButtonTagFilter = new Ex03.UI.CommandButton();
+            this.commandButtonScan = new Ex03.UI.CommandButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbumPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,18 +54,6 @@
             this.listBoxAlbumList.Size = new System.Drawing.Size(289, 484);
             this.listBoxAlbumList.TabIndex = 0;
             this.listBoxAlbumList.SelectedIndexChanged += new System.EventHandler(this.listBoxAlbumList_SelectedIndexChanged);
-            // 
-            // buttonScan
-            // 
-            this.buttonScan.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.buttonScan.ForeColor = System.Drawing.Color.Blue;
-            this.buttonScan.Location = new System.Drawing.Point(1283, 522);
-            this.buttonScan.Name = "buttonScan";
-            this.buttonScan.Size = new System.Drawing.Size(417, 111);
-            this.buttonScan.TabIndex = 2;
-            this.buttonScan.Text = "Scan";
-            this.buttonScan.UseVisualStyleBackColor = true;
-            this.buttonScan.Click += new System.EventHandler(this.buttonScan_Click);
             // 
             // label1
             // 
@@ -94,48 +81,6 @@
             this.checkedListBoxTaggedFriends.Name = "checkedListBoxTaggedFriends";
             this.checkedListBoxTaggedFriends.Size = new System.Drawing.Size(269, 130);
             this.checkedListBoxTaggedFriends.TabIndex = 5;
-            // 
-            // buttonTagFilter
-            // 
-            this.buttonTagFilter.Enabled = false;
-            this.buttonTagFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.buttonTagFilter.ForeColor = System.Drawing.Color.Blue;
-            this.buttonTagFilter.Location = new System.Drawing.Point(1013, 757);
-            this.buttonTagFilter.Name = "buttonTagFilter";
-            this.buttonTagFilter.Size = new System.Drawing.Size(241, 124);
-            this.buttonTagFilter.TabIndex = 6;
-            this.buttonTagFilter.Text = "Filter Tagged People";
-            this.buttonTagFilter.UseVisualStyleBackColor = true;
-            this.buttonTagFilter.Click += new System.EventHandler(this.buttonTagFilter_Click);
-            // 
-            // buttonResetFilter
-            // 
-            this.buttonResetFilter.Enabled = false;
-            this.buttonResetFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.buttonResetFilter.ForeColor = System.Drawing.Color.Blue;
-            this.buttonResetFilter.Location = new System.Drawing.Point(722, 757);
-            this.buttonResetFilter.Name = "buttonResetFilter";
-            this.buttonResetFilter.Size = new System.Drawing.Size(241, 124);
-            this.buttonResetFilter.TabIndex = 8;
-            this.buttonResetFilter.Text = "Reset Filter";
-            this.buttonResetFilter.UseVisualStyleBackColor = true;
-            this.buttonResetFilter.Click += new System.EventHandler(this.buttonResetFilter_Click);
-            // 
-            // buttonLikeSelectedPhotos
-            // 
-            this.buttonLikeSelectedPhotos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.buttonLikeSelectedPhotos.Enabled = false;
-            this.buttonLikeSelectedPhotos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.buttonLikeSelectedPhotos.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonLikeSelectedPhotos.Image = ((System.Drawing.Image)(resources.GetObject("buttonLikeSelectedPhotos.Image")));
-            this.buttonLikeSelectedPhotos.Location = new System.Drawing.Point(120, 599);
-            this.buttonLikeSelectedPhotos.Name = "buttonLikeSelectedPhotos";
-            this.buttonLikeSelectedPhotos.Size = new System.Drawing.Size(388, 265);
-            this.buttonLikeSelectedPhotos.TabIndex = 7;
-            this.buttonLikeSelectedPhotos.Text = "Like!";
-            this.buttonLikeSelectedPhotos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.buttonLikeSelectedPhotos.UseVisualStyleBackColor = false;
-            this.buttonLikeSelectedPhotos.Click += new System.EventHandler(this.buttonLikeSelectedPhotos_Click);
             // 
             // pictureBoxAlbumPicture
             // 
@@ -188,23 +133,73 @@
             this.labelNumberOfPhotosToLike.TabIndex = 12;
             this.labelNumberOfPhotosToLike.Text = "0";
             // 
+            // commandButtonLikeSelectedPhotos
+            // 
+            this.commandButtonLikeSelectedPhotos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.commandButtonLikeSelectedPhotos.Command = null;
+            this.commandButtonLikeSelectedPhotos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.commandButtonLikeSelectedPhotos.Image = global::Ex03.UI.Properties.Resources.LikeAlbum;
+            this.commandButtonLikeSelectedPhotos.Location = new System.Drawing.Point(81, 616);
+            this.commandButtonLikeSelectedPhotos.Name = "commandButtonLikeSelectedPhotos";
+            this.commandButtonLikeSelectedPhotos.Size = new System.Drawing.Size(388, 265);
+            this.commandButtonLikeSelectedPhotos.TabIndex = 13;
+            this.commandButtonLikeSelectedPhotos.Text = "Like!";
+            this.commandButtonLikeSelectedPhotos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.commandButtonLikeSelectedPhotos.UseVisualStyleBackColor = false;
+            // 
+            // commandButtonResetFilter
+            // 
+            this.commandButtonResetFilter.Command = null;
+            this.commandButtonResetFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.commandButtonResetFilter.ForeColor = System.Drawing.Color.Blue;
+            this.commandButtonResetFilter.Location = new System.Drawing.Point(692, 757);
+            this.commandButtonResetFilter.Name = "commandButtonResetFilter";
+            this.commandButtonResetFilter.Size = new System.Drawing.Size(241, 124);
+            this.commandButtonResetFilter.TabIndex = 14;
+            this.commandButtonResetFilter.Text = "Reset Filter";
+            this.commandButtonResetFilter.UseVisualStyleBackColor = true;
+            // 
+            // commandButtonTagFilter
+            // 
+            this.commandButtonTagFilter.Command = null;
+            this.commandButtonTagFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.commandButtonTagFilter.ForeColor = System.Drawing.Color.Blue;
+            this.commandButtonTagFilter.Location = new System.Drawing.Point(958, 757);
+            this.commandButtonTagFilter.Name = "commandButtonTagFilter";
+            this.commandButtonTagFilter.Size = new System.Drawing.Size(241, 124);
+            this.commandButtonTagFilter.TabIndex = 15;
+            this.commandButtonTagFilter.Text = "Filter Tagged People";
+            this.commandButtonTagFilter.UseVisualStyleBackColor = true;
+            // 
+            // commandButtonScan
+            // 
+            this.commandButtonScan.Command = null;
+            this.commandButtonScan.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
+            this.commandButtonScan.ForeColor = System.Drawing.Color.Blue;
+            this.commandButtonScan.Location = new System.Drawing.Point(1283, 500);
+            this.commandButtonScan.Name = "commandButtonScan";
+            this.commandButtonScan.Size = new System.Drawing.Size(417, 111);
+            this.commandButtonScan.TabIndex = 16;
+            this.commandButtonScan.Text = "Scan";
+            this.commandButtonScan.UseVisualStyleBackColor = true;
+            // 
             // AlbumScannerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(1882, 972);
+            this.Controls.Add(this.commandButtonScan);
+            this.Controls.Add(this.commandButtonTagFilter);
+            this.Controls.Add(this.commandButtonResetFilter);
+            this.Controls.Add(this.commandButtonLikeSelectedPhotos);
             this.Controls.Add(this.labelNumberOfPhotosToLike);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.buttonResetFilter);
-            this.Controls.Add(this.buttonLikeSelectedPhotos);
-            this.Controls.Add(this.buttonTagFilter);
             this.Controls.Add(this.checkedListBoxTaggedFriends);
             this.Controls.Add(this.listViewAlbumPhotos);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonScan);
             this.Controls.Add(this.pictureBoxAlbumPicture);
             this.Controls.Add(this.listBoxAlbumList);
             this.Name = "AlbumScannerForm";
@@ -219,16 +214,16 @@
 
         private System.Windows.Forms.ListBox listBoxAlbumList;
         private System.Windows.Forms.PictureBox pictureBoxAlbumPicture;
-        private System.Windows.Forms.Button buttonScan;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView listViewAlbumPhotos;
         private System.Windows.Forms.CheckedListBox checkedListBoxTaggedFriends;
-        private System.Windows.Forms.Button buttonTagFilter;
-        private System.Windows.Forms.Button buttonLikeSelectedPhotos;
-        private System.Windows.Forms.Button buttonResetFilter;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelNumberOfPhotosToLike;
+        private CommandButton commandButtonLikeSelectedPhotos;
+        private CommandButton commandButtonResetFilter;
+        private CommandButton commandButtonTagFilter;
+        private CommandButton commandButtonScan;
     }
 }

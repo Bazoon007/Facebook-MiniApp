@@ -28,8 +28,14 @@ namespace Ex03.UI
                 (
                 () =>
                 {
-                    (sender as CommandButton).Command.Execute();
-                    OnCommandFinished(); 
+                    try
+                    {
+                        (sender as CommandButton).Command.Execute();
+                    }
+                    finally
+                    {
+                        OnCommandFinished();
+                    }
                 }
                 ).Start();
         }
