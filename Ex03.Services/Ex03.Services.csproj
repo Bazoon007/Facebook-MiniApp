@@ -55,7 +55,6 @@
     <Compile Include="ICommand.cs" />
     <Compile Include="IPostStrategy.cs" />
     <Compile Include="IPhotoComponent.cs" />
-    <Compile Include="Posts.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="PhotoProxy.cs" />
     <Compile Include="UserFacade.cs" />

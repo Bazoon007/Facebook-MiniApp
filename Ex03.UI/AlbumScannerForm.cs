@@ -69,11 +69,11 @@ namespace Ex03.UI
                 List<string> taggedPersonList = (List<string>)r_AlbumScanner.FetchTaggedPersonList(i_Filter);
                 addTaggedFriendNameToCheckedListBox(taggedPersonList);
                 bool enableScanButtons = imageListAlbumPhoto.Images.Count > 0;
-                commandButtonTagFilter.Invoke(new Action(() => commandButtonTagFilter.Enabled = enableScanButtons));
-                commandButtonResetFilter.Invoke(new Action(() => commandButtonResetFilter.Enabled = enableScanButtons));
+                buttonTagFilter.Invoke(new Action(() => buttonTagFilter.Enabled = enableScanButtons));
+                buttonResetFilter.Invoke(new Action(() => buttonResetFilter.Enabled = enableScanButtons));
                 if (!i_Filter && !i_Reset)
-                { 
-                    r_SelectedPhotosList.Add(new CompositePhotoProxy());
+                {
+                    r_AlbumScanner.SelectedPhotosList.Add(new CompositePhotoProxy());
                 }
             }
             else
@@ -146,13 +146,7 @@ namespace Ex03.UI
             listBoxAlbumList.Items.Clear();
             listViewAlbumPhotos.Items.Clear();
             commandButtonLikeSelectedPhotos.Command = new AlbumScanner.LikeSelectedPhotosCommand() { Client = (AlbumScanner)FacebookFeature };
-            commandButtonLikeSelectedPhotos.CommandFinished += ((IFeatureFrom)this).ExecuteFeature;
-            commandButtonExecuteBlast.Command = new BlastFromThePast.ExecuteBlastCommand() { Client = (BlastFromThePast)FacebookFeature };
-            commandButtonExecuteBlast.CommandFinished += ((IFeatureFrom)this).ExecuteFeature;
-            commandButtonExecuteBlast.Command = new BlastFromThePast.ExecuteBlastCommand() { Client = (BlastFromThePast)FacebookFeature };
-            commandButtonExecuteBlast.CommandFinished += ((IFeatureFrom)this).ExecuteFeature;
-            commandButtonExecuteBlast.Command = new BlastFromThePast.ExecuteBlastCommand() { Client = (BlastFromThePast)FacebookFeature };
-            commandButtonExecuteBlast.CommandFinished += ((IFeatureFrom)this).ExecuteFeature;
+            commandButtonLikeSelectedPhotos.CommandFinished += likeSelectedPhotos;
             new Thread(fetchAlbums).Start();
         }
 
@@ -204,16 +198,8 @@ namespace Ex03.UI
 
         private void likeSelectedPhotos()
         {
-            try
-            {
-                {
-                    MessageBox.Show(string.Format("Liking all selected photos - complete!!"));
-                }
-            }
-            catch
-            {
-                MessageBox.Show(string.Format("Error - not all selected photos were liked :(."));
-            }
+            string message = r_AlbumScanner.LikedAllSelectedPhotosSuccess ? "Liking all selected photos -complete!!" : "Error - not all selected photos were liked :(.";
+            MessageBox.Show(message);
         }
     }
 }

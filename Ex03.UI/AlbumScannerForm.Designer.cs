@@ -39,9 +39,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.labelNumberOfPhotosToLike = new System.Windows.Forms.Label();
             this.commandButtonLikeSelectedPhotos = new Ex03.UI.CommandButton();
-            this.commandButtonResetFilter = new Ex03.UI.CommandButton();
-            this.commandButtonTagFilter = new Ex03.UI.CommandButton();
-            this.commandButtonScan = new Ex03.UI.CommandButton();
+            this.buttonResetFilter = new System.Windows.Forms.Button();
+            this.buttonTagFilter = new System.Windows.Forms.Button();
+            this.buttonScan = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbumPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -137,6 +137,7 @@
             // 
             this.commandButtonLikeSelectedPhotos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.commandButtonLikeSelectedPhotos.Command = null;
+            this.commandButtonLikeSelectedPhotos.Enabled = false;
             this.commandButtonLikeSelectedPhotos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.commandButtonLikeSelectedPhotos.Image = global::Ex03.UI.Properties.Resources.LikeAlbum;
             this.commandButtonLikeSelectedPhotos.Location = new System.Drawing.Point(81, 616);
@@ -147,41 +148,43 @@
             this.commandButtonLikeSelectedPhotos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.commandButtonLikeSelectedPhotos.UseVisualStyleBackColor = false;
             // 
-            // commandButtonResetFilter
+            // buttonResetFilter
             // 
-            this.commandButtonResetFilter.Command = null;
-            this.commandButtonResetFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.commandButtonResetFilter.ForeColor = System.Drawing.Color.Blue;
-            this.commandButtonResetFilter.Location = new System.Drawing.Point(692, 757);
-            this.commandButtonResetFilter.Name = "commandButtonResetFilter";
-            this.commandButtonResetFilter.Size = new System.Drawing.Size(241, 124);
-            this.commandButtonResetFilter.TabIndex = 14;
-            this.commandButtonResetFilter.Text = "Reset Filter";
-            this.commandButtonResetFilter.UseVisualStyleBackColor = true;
+            this.buttonResetFilter.Enabled = false;
+            this.buttonResetFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.buttonResetFilter.ForeColor = System.Drawing.Color.Blue;
+            this.buttonResetFilter.Location = new System.Drawing.Point(685, 757);
+            this.buttonResetFilter.Name = "buttonResetFilter";
+            this.buttonResetFilter.Size = new System.Drawing.Size(241, 124);
+            this.buttonResetFilter.TabIndex = 17;
+            this.buttonResetFilter.Text = "Reset Filter";
+            this.buttonResetFilter.UseVisualStyleBackColor = true;
+            this.buttonResetFilter.Click += new System.EventHandler(this.buttonResetFilter_Click);
             // 
-            // commandButtonTagFilter
+            // buttonTagFilter
             // 
-            this.commandButtonTagFilter.Command = null;
-            this.commandButtonTagFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.commandButtonTagFilter.ForeColor = System.Drawing.Color.Blue;
-            this.commandButtonTagFilter.Location = new System.Drawing.Point(958, 757);
-            this.commandButtonTagFilter.Name = "commandButtonTagFilter";
-            this.commandButtonTagFilter.Size = new System.Drawing.Size(241, 124);
-            this.commandButtonTagFilter.TabIndex = 15;
-            this.commandButtonTagFilter.Text = "Filter Tagged People";
-            this.commandButtonTagFilter.UseVisualStyleBackColor = true;
+            this.buttonTagFilter.Enabled = false;
+            this.buttonTagFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.buttonTagFilter.ForeColor = System.Drawing.Color.Blue;
+            this.buttonTagFilter.Location = new System.Drawing.Point(963, 757);
+            this.buttonTagFilter.Name = "buttonTagFilter";
+            this.buttonTagFilter.Size = new System.Drawing.Size(241, 124);
+            this.buttonTagFilter.TabIndex = 18;
+            this.buttonTagFilter.Text = "Filter Tagged People";
+            this.buttonTagFilter.UseVisualStyleBackColor = true;
+            this.buttonTagFilter.Click += new System.EventHandler(this.buttonTagFilter_Click);
             // 
-            // commandButtonScan
+            // buttonScan
             // 
-            this.commandButtonScan.Command = null;
-            this.commandButtonScan.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
-            this.commandButtonScan.ForeColor = System.Drawing.Color.Blue;
-            this.commandButtonScan.Location = new System.Drawing.Point(1283, 500);
-            this.commandButtonScan.Name = "commandButtonScan";
-            this.commandButtonScan.Size = new System.Drawing.Size(417, 111);
-            this.commandButtonScan.TabIndex = 16;
-            this.commandButtonScan.Text = "Scan";
-            this.commandButtonScan.UseVisualStyleBackColor = true;
+            this.buttonScan.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
+            this.buttonScan.ForeColor = System.Drawing.Color.Blue;
+            this.buttonScan.Location = new System.Drawing.Point(1283, 483);
+            this.buttonScan.Name = "buttonScan";
+            this.buttonScan.Size = new System.Drawing.Size(417, 111);
+            this.buttonScan.TabIndex = 19;
+            this.buttonScan.Text = "Scan";
+            this.buttonScan.UseVisualStyleBackColor = true;
+            this.buttonScan.Click += new System.EventHandler(this.buttonScan_Click);
             // 
             // AlbumScannerForm
             // 
@@ -189,9 +192,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(1882, 972);
-            this.Controls.Add(this.commandButtonScan);
-            this.Controls.Add(this.commandButtonTagFilter);
-            this.Controls.Add(this.commandButtonResetFilter);
+            this.Controls.Add(this.buttonScan);
+            this.Controls.Add(this.buttonTagFilter);
+            this.Controls.Add(this.buttonResetFilter);
             this.Controls.Add(this.commandButtonLikeSelectedPhotos);
             this.Controls.Add(this.labelNumberOfPhotosToLike);
             this.Controls.Add(this.label4);
@@ -222,8 +225,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelNumberOfPhotosToLike;
         private CommandButton commandButtonLikeSelectedPhotos;
-        private CommandButton commandButtonResetFilter;
-        private CommandButton commandButtonTagFilter;
-        private CommandButton commandButtonScan;
+        private System.Windows.Forms.Button buttonResetFilter;
+        private System.Windows.Forms.Button buttonTagFilter;
+        private System.Windows.Forms.Button buttonScan;
     }
 }
