@@ -45,7 +45,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.commandButtonExecuteBlast = new Ex03.UI.CommandButton();
-            this.customControl11 = new Ex03.UI.CustomControl1();
             this.groupBoxBlastType.SuspendLayout();
             this.groupBoxPostDetails.SuspendLayout();
             this.SuspendLayout();
@@ -203,22 +202,12 @@
             this.commandButtonExecuteBlast.Text = "Blast yourself to the past!";
             this.commandButtonExecuteBlast.UseVisualStyleBackColor = true;
             // 
-            // customControl11
-            // 
-            this.customControl11.Command = null;
-            this.customControl11.Location = new System.Drawing.Point(679, 146);
-            this.customControl11.Name = "customControl11";
-            this.customControl11.Size = new System.Drawing.Size(414, 179);
-            this.customControl11.TabIndex = 12;
-            this.customControl11.Text = "customControl11";
-            // 
             // BlastFromThePastForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1891, 1071);
-            this.Controls.Add(this.customControl11);
             this.Controls.Add(this.commandButtonExecuteBlast);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBoxPostDetails);
@@ -254,6 +243,5 @@
         private System.Windows.Forms.Label label4;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private CommandButton commandButtonExecuteBlast;
-        private CustomControl1 customControl11;
     }
 }
